@@ -1,0 +1,29 @@
+$light-bg: #fffff1;
+$light-grey: #f2f6d3;
+$light-cl: #ffffff;
+$dark-cl: #424436;
+$grey-cl: #dddddd;
+$green-cl: #92a134;
+$radius-small: 6px;
+$radius-big: 12px;
+$grey-second-cl: #8b8b8b;
+$sale-cl: #f26d22;
+$red: #f26d;
+
+:root {
+  --light-dark-bg: #fffff1;
+  --light-dark-cl: #424436;
+  --second-light-dark-cl: #424436;
+  --second-light-dark-bg: #f2f6d3;
+  --card-light-dark-bg: #FFFFFF;
+  --crumbs-light-dark-cl:#282828;
+}
+
+.dark {
+  --light-dark-bg: #424436;
+  --light-dark-cl: #FFFFFF;
+  --second-light-dark-cl: #fffff1;
+  --second-light-dark-bg: #383a2c;
+  --card-light-dark-bg: #383a2c;
+  --crumbs-light-dark-cl: #FFFFFF;
+}
