@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://backend-02zq.onrender.com';
+export const BASE_URL = 'http://localhost:3333';

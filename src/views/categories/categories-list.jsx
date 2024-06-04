@@ -4,6 +4,7 @@ import styles from "./index.module.scss";
 import cn from "classnames";
 import { BASE_URL } from "../../constants";
 
+// import { Categories } from "../../../categories";
 
 
 export const CategoryList = ({image,id,title}) => {
