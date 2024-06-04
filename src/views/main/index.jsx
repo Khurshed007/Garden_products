@@ -8,7 +8,6 @@ import { requestAllProductItem } from "../../store/async-action";
 import { getDiscountItems } from "../../store/selectors";
 // Кастомный хук
 import useData from "../../hooks/useData";
-import {useDispatch } from "react-redux";
 
 
 export const Main = () => {
