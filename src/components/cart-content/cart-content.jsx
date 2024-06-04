@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./index.module.scss"; // Подключение модуля стилей
 import CartView from "./cart-view";
-import { cartContext } from "../../context/cart-context";
+
 
 import { useCartAction } from "../../hooks/useCartAction";
 import { useSelector } from "react-redux";

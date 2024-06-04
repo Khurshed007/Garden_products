@@ -1,8 +1,6 @@
 import { CardItemView } from "./card-item-view";
 import styles from "./index.module.scss";
 import cn from "classnames";
-import { themeContext } from "../../context/theme";
-import { useContext } from "react";
 import { getDiscountPercent } from "../../utils/getDiscountPercent";
 import { Title } from "../title/title";
 import { BreadCrumbs } from "../bread-crumbs/bread-crumbs";
@@ -17,7 +15,7 @@ export const CardItem = ({
   hideBreadCrumbs,
   allSales
 }) => {
-  const { theme } = useContext(themeContext);
+
 
   return (
     <>
