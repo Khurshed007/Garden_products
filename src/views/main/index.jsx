@@ -8,15 +8,23 @@ import { requestAllProductItem } from "../../store/async-action";
 import { getDiscountItems } from "../../store/selectors";
 // Кастомный хук
 import useData from "../../hooks/useData";
+import { useSelector, useDispatch } from "react-redux";
+import { Loading } from "../loading/loading";
 
 
 export const Main = () => {
   const DATA_DISCOUNT_ITEMS = useData(requestAllProductItem, getDiscountItems);
+   const isLoading = useSelector(state => state.shop.isLoading)
+   let dispatch = useDispatch()
 
 
+
+
+  // isLoading ? (<Loading/>) :
   return   (
     <>
       <Head />
+      <Categories showBreadCrumbs = {false}  categoriesItem = {4} btnText = {"All Categories"} btnDispplay = {true} />
       <section>
         <CardItem
           dataItems={DATA_DISCOUNT_ITEMS}
@@ -26,6 +34,7 @@ export const Main = () => {
           hideBreadCrumbs = {true}
         />
       </section>
+
     </>
   );
 };

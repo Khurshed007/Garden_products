@@ -1,0 +1,55 @@
+.wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin-right: 24px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 1000px) {
+    max-width: 44px;
+    max-height: 44px;
+    margin-right: 11px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.icon {
+  width: 100%;
+}
+
+.count {
+  left: 0;
+  top: 7px;
+  position: absolute;
+  background-color: #92a134;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  line-height: 12px;
+  text-align: center;
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  
+  
+}
+
+
+
+
+.display_active{
+  @media screen and (max-width: 1400px) {
+    display: none;
+ }
+}
+
+
+

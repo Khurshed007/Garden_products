@@ -1,0 +1,43 @@
+.wrapper {
+    width: 60px;
+    height: 32px;
+    border-radius: 30px;
+    background-color: #8B8B8B;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+
+    &.active {
+        background-color: #fff;
+    }
+
+    @media screen and (max-width: 1400px) {
+     
+          display: none;
+        
+      }
+}
+
+.circle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    transition: all 0.25s ease-in-out;
+
+    &.active {
+        left: 30px;
+        background-color: #8B8B8B;
+    }
+}
+
+.icon {
+    user-select: none;
+}
