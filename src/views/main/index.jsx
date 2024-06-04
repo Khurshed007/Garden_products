@@ -10,6 +10,7 @@ import { getDiscountItems } from "../../store/selectors";
 import useData from "../../hooks/useData";
 import { useSelector, useDispatch } from "react-redux";
 import { Loading } from "../loading/loading";
+import { DiscountForm } from "../discount-form/discount-form";
 
 
 export const Main = () => {
@@ -34,6 +35,7 @@ export const Main = () => {
           hideBreadCrumbs = {true}
         />
       </section>
+      <DiscountForm/>
 
     </>
   );
