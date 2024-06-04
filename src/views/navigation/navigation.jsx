@@ -74,10 +74,6 @@ export const Navigation = () => {
             </NavLink>
           </li>
         </ul>
-
-        {/* <NavLink to='/categories' className={getClassName}>Categories</NavLink>
-        <NavLink to='/all-products' className={getClassName}>All Products</NavLink>
-        <NavLink to='/all-sales' className={getClassName}>All Sales</NavLink> */}
       </nav>
       <div className={styles.heartCartWrapper}>
         {/* TODO: сделать лайки, красить иконки согласно теме */}
