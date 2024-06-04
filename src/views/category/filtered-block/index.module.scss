@@ -1,0 +1,92 @@
+@import "../../../vars.scss";
+// .filter_block {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 10px;
+//   }
+  
+//   .filterItem {
+//     display: flex;
+//     align-items: center;
+//     input{
+
+//         &:not(:last-child){
+//             margin-right: 10px;
+//         }
+//     }
+  
+//     label {
+//       margin-right: 5px;
+//     }
+    
+//     &.select {
+//       width: 150px; // Пример задания ширины для select
+//     }
+//   }
+.price {
+  width: 112px;
+  height: 36px;
+  border: 1px solid $grey-cl; 
+  padding: 8px 16px;
+  border-radius: $radius-small; 
+  outline: none;
+
+}
+.discount{
+    width: 36px;
+    height: 36px;
+    border: 1px solid $grey-cl; 
+    background-color: $light-cl; 
+    border-radius: 1px; 
+    outline: none;
+
+  
+}
+
+
+
+.sort {
+  width: 200px;     
+  height: 36px;           
+  border: 1px solid $grey-cl; 
+  background-color: $light-cl; 
+  border-radius: $radius-small;      
+  padding: 8px 16px;       
+  box-sizing: border-box;
+  outline: none;
+}
+
+label{
+  font-family: 'Montserrat', sans-serif; 
+  font-weight: 600;       
+  font-size: 20px;        
+  line-height: 26px;
+  @media screen and (max-width:480px) {
+     font-size: 18px;
+     line-height: 23.4px;
+  }
+}
+.block{
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+
+  @media screen and (max-width: 780px) {
+    margin-top: 32px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-top: 24px;
+  }
+
+}
+
+.price_content, .discount_content, .sort_content{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+}
