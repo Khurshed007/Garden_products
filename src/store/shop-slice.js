@@ -19,7 +19,7 @@ const shopSlice = createSlice({
     initialState,
     reducers: {
 
-        setCategory: (state,  {payload}) => {
+         setCategory: (state,  {payload}) => {
             state.category = payload;
         },
   
