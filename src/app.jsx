@@ -1,12 +1,13 @@
+import React from "react";
+import { RootRoutes } from "./routes";
 
-import { Head } from "./views/head/head";
-function App() {
+
+export const App = () => {
+
+
   return (
-    <div className="App">
-     <h1>Hallo</h1>
-     <Head/>
-    </div>
+    <>
+      <RootRoutes />
+    </>
   );
-}
-
-export default App;
+};
