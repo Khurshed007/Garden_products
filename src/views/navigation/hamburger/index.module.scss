@@ -1,0 +1,96 @@
+@import "../../../vars.scss";
+
+
+  @media screen and (max-width: 480px) {
+    .hamburger {
+        // position: absolute;
+        // top: 50%;
+        position: relative;
+        // background-color: red;
+        right: 0;
+        margin-right: 5%;
+        z-index: 2;
+        width: 50px;
+        height: 50px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding: 5px;
+        gap: 5px;
+      }
+      .hamburger .strike_1 {
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        background-color: $dark-cl;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        &.dark{
+            background-color: $light-bg; 
+        }
+      }
+      .hamburger .strike_2 {
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        background-color: $dark-cl;
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        &.dark{
+            background-color: $light-bg; 
+        }
+      }
+      .hamburger .strike_3 {
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        background-color: $dark-cl;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+    
+        &.dark{
+            background-color: $light-bg; 
+        }
+      }
+      .hamburger.active {
+        overflow-x: hidden;
+      }
+      .hamburger.active .strike_1 {
+        -webkit-transform: translateY(0px) rotate(45deg);
+        transform: translateY(0px) rotate(45deg);
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+      .hamburger.active .strike_2 {
+        -webkit-transform: translateY(0px) rotate(-45deg);
+        transform: translateY(0px) rotate(-45deg);
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+      .hamburger.active .strike_3 {
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background-color: #fff;
+        -webkit-transform: translateX(200%);
+        transform: translateX(200%);
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+      }
+  }
