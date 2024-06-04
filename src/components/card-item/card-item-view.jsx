@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import { useCartAction } from "../../hooks/useCartAction";
 import cn from "classnames"
+import { themeContext } from "../../context/theme";
 import { useSelector } from "react-redux";
 import { toggleLikes } from "../../store/shop-slice";
 import { useShopAction } from "../../hooks/useShopAction";
@@ -21,6 +22,7 @@ export const CardItemView = ({
   id,
   noMargin
 }) => {
+ let {theme} = useContext(themeContext)
  const {likesCounter} = useShopAction()
  const likesData = useSelector((state) => state.shop.likesData);
 const {handleCartState,goodsData } = useCartAction()
