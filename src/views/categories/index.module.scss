@@ -1,0 +1,161 @@
+@import "../../vars.scss";
+@import "../../components/card-item/index.module.scss";
+
+.categories_cards {
+  display: flex;
+  flex-direction: column;
+  border-radius: $radius-big;
+}
+
+.categories_cards_img {
+  border-radius: $radius-big;
+  width: 100%;
+  height: 350px;
+
+  img {
+    border-radius: $radius-big;
+    width: 100%;
+    height: 100%;
+  }
+}
+.categories_cards_text {
+  width: 100%;
+  height: 26px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  margin-top: 10px;
+
+  &.dark {
+    color: $light-cl;
+  }
+}
+
+.list {
+  a {
+    // a потому что наш .categories_cards лежит внутри Link
+    &:not(:last-child) {
+      margin-right: 32px;
+      margin-bottom: 32px;
+    }
+    &:dark {
+      color: $light-cl;
+    }
+    color: $dark-cl;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .categories {
+    padding: 0 20px;
+  }
+  .categories_cards {
+  }
+
+  .categories_cards_img {
+    border-radius: $radius-big;
+    width: 100%;
+    height: 250px;
+  }
+  .list {
+    // gap: 20px;
+
+    a {
+      // a потому что наш .categories_cards лежит внутри Link
+      &:not(:last-child) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+      margin-top: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .categories {
+    padding: 0 20px;
+  }
+  .categories_cards {
+    .categories_cards_text {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  // .categories_text{
+  //   font-size: 56px;
+  //   line-height: 61.6px;
+  // }
+
+  .list {
+    a {
+      // a потому что наш .categories_cards лежит внутри Link
+      &:not(:last-child) {
+        margin-right: 16px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .categories {
+    padding: 0 15px;
+  }
+  .categories_cards {
+  }
+
+  // .categories_text{
+  //    font-size: 48px;
+  //    font-weight: 700;
+  //   line-height: 52.8px;
+
+  // }
+
+  .list {
+    a {
+      // a потому что наш .categories_cards лежит внутри Link
+      &:not(:last-child) {
+        margin-right: 16px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .btn_item {
+    display: none;
+  }
+}
+@media screen and (max-width: 360px) {
+  .categories {
+    padding: 0 20px;
+  }
+  .categories_cards {
+  }
+
+  .categories_cards_img {
+    height: 250px;
+  }
+  .categories_text {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  .btn_item {
+    display: none;
+  }
+
+  .list {
+    a {
+      // a потому что наш .categories_cards лежит внутри Link
+      &:not(:last-child) {
+        margin-right: 16px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
