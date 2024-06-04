@@ -1,8 +1,7 @@
 
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import { BASE_URL } from "../constants";
-import { setCategory } from './shop-slice';
-import { setItems } from './shop-slice';
+
 export const requestCategoryItem = createAsyncThunk('shop/requestCategoryItem', async (_, thunkApi) => {
    const {dispatch} = thunkApi
     // console.log(thunkApi);

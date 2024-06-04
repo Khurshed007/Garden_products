@@ -1,0 +1,308 @@
+@import "../../vars.scss";
+// @import "../../views/all-products/index.module.scss";
+// @import "../../views/categories/index.module.scss";
+
+* {
+  text-decoration: none;
+}
+
+section {
+  padding: 0 40px;
+
+  @media screen and (max-width: 780px) {
+    padding: 0 20px;
+  }
+}
+
+.main_title {
+  margin-top: 40px;
+  @media screen and (max-width: 768px) {
+    margin-top: 32px;
+  }
+}
+
+.categories {
+  margin-top: 40px;
+  padding: 0 40px;
+  color: $dark-cl;
+
+  &.dark {
+    color: $light-cl;
+  }
+}
+.categories_title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  &.dark {
+    color: $light-cl;
+
+    @media screen and (max-width: 780px) {
+      margin-top: 32px;
+    }
+  }
+  h1 {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 70.4px;
+  }
+}
+
+.btn {
+  width: 142px;
+  height: 36px;
+  border-radius: 1px;
+  padding: 8px 16px 8px 16px;
+  z-index: 1;
+  color: $grey-cl;
+  outline: none;
+  border: 1px solid $grey-cl;
+  background-color: $light-bg;
+}
+.btn_item {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  // background-color: red;
+  width: 100%;
+}
+.btn_item::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  background-color: $grey-cl;
+
+  z-index: 0;
+}
+.categories_cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories_cards_img {
+  width: 100%;
+  height: 350px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.categories_cards_text {
+  width: 100%;
+  height: 26px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  margin-top: 10px;
+
+  &.dark {
+    color: $light-cl;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+
+  a {
+    // a потому что наш .categories_cards лежит внутри Link
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+    &:dark {
+      color: $light-cl;
+    }
+    color: $dark-cl;
+    margin-top: 40px;
+  }
+}
+
+.wrapper {
+  border-radius: 12px;
+  font-family: " Montserrat";
+  margin-top: 40px;
+  background-color: var(--card-light-dark-bg);
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+  @media screen and (max-width: 1000px) {
+    margin-top: 32px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-top: 24px;
+  }
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 284px;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid $grey-second-cl;
+
+  &:hover > .btn {
+    opacity: 1;
+    transition: 0.5 all ease-out;
+  }
+  .cardImage {
+    height: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+  .btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 284px;
+    height: 58px;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    transition: 0.5 all ease-out;
+    border-radius: 6px;
+    padding: 16px 32px;
+    outline: none;
+    border: none;
+    opacity: 0;
+
+    // background-color: green;
+
+    &:hover {
+      background-color: #000;
+      color: #fff;
+      transition: 0.5s all ease-out;
+    }
+  }
+}
+
+.discount {
+  background-color: orange;
+  color: #fff;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 67px;
+  height: 34px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 3%;
+  padding: 4px 8px 4px 8px;
+  border-radius: 5px;
+  background-color: $green-cl;
+}
+
+%icon {
+  position: absolute;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  // fill: red;
+  stroke: #fff;
+  cursor: pointer;
+}
+
+.heart {
+  @extend %icon;
+  top: 10px;
+  width: 48px;
+  height: 48px;
+  fill: #ffffff;
+  &.checked {
+    fill: $green-cl;
+    path {
+      stroke: none;
+    }
+  }
+}
+
+.cart {
+  @extend %icon;
+  top: 45px;
+  width: 48px;
+  height: 48px;
+  margin-top: 20px;
+  fill: #ffffff;
+  &.checked {
+    fill: $green-cl;
+
+    path {
+      stroke: none;
+      fill: $green-cl;
+    }
+  }
+}
+
+.cart:active,
+.heart:active {
+  path {
+    fill: #000000;
+  }
+}
+
+.cardImage {
+  width: 100%;
+}
+
+.info {
+  border-radius: 0px 0 12px 12px;
+  padding: 10px;
+  border: 1px solid $grey-second-cl;
+  background-color: var(--card-light-dark-bg);
+  height: 118px;
+  color: var(--light-dark-cl);
+}
+
+.title {
+  width: 100%;
+}
+
+.prices {
+  margin-top: 10px;
+  display: flex;
+  font-family: " Montserrat";
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 44px;
+  width: 100%;
+  align-items: flex-end;
+  color: var(--light-dark-cl);
+}
+.newPrice {
+  font-size: 20px;
+  line-height: 26px;
+  margin-left: 10px;
+  color: $grey-second-cl;
+  text-decoration: line-through;
+  font-weight: 500;
+  
+}
+
+@media screen and (max-width: 1000px) {
+  .list {
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .list {
+    grid-template-columns: repeat(2, 200px);
+    align-items: center;
+  }
+}
+@media screen and (max-width: 470px) {
+  .list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    align-items: center;
+  }
+}
+
+.wrapper__no_margin:not(:last-child){
+  margin: 0;
+}
