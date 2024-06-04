@@ -1,0 +1,195 @@
+@import "../../vars.scss";
+
+
+#error_section{
+    margin-top: 80px;
+    padding: 0 340px;
+}
+
+.container {
+    text-align: center;
+    background-color:var(--light-dark-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h1 {
+    font-size: 300px;
+    line-height: 270px;
+    margin: 0;
+    color: $green-cl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cactus {
+    width: 300px;
+    height: 270px;
+    margin: 0 20px;
+}
+
+.container h2 {
+    margin-top: 32px;
+    color: var(--light-dark-cl);
+    font-weight: 700;
+    font-size: 64px;
+    line-height:70.4px;
+}
+
+.container p {
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: $grey-second-cl;
+    max-width: 600px;
+}
+
+.btn {
+    margin-top: 32px;
+    background-color: $green-cl;
+    color: white;
+    padding: 16px 56px;
+    text-decoration: none;
+    border-radius:$radius-small;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.hugBtn {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
+@media screen and (max-width:1000px) {
+    #error_section{
+        margin-top: 60px;
+        padding: 0 120px;
+    }
+
+}
+
+
+@media screen and (max-width:768px) {
+    #error_section{
+        margin-top: 61px;
+        padding:0;
+    }
+    .cactus {
+        width: 266.67px;
+        height: 240px;
+        margin: 0 10px;
+    }
+    .container{
+        padding: 0 60px;
+    }
+    .container h1 {
+        font-size: 266.67px;
+        line-height: 240px;
+        margin: 0;
+        color: $green-cl;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container h2 {
+        font-size: 56px;
+        line-height: 61.6px;
+       
+    }
+    .container p {
+        font-size: 20px;
+        line-height: 26px;
+      
+    }
+    .btn{
+        padding: 12px 52px;
+        font-size: 20px;
+        line-height: 26px;
+
+    }
+}
+
+@media screen and (max-width:700px) {
+
+    .cactus {
+        width: 180px;
+        height: 162.96px;
+        margin: 0 10px;
+    }
+    .container{
+        padding: 0 20px;
+    }
+    .container h1 {
+        font-size: 180px;
+        line-height: 162px;
+    }
+    .container h2 {
+        font-size: 48px;
+        line-height: 52.8px;
+       
+    }
+    .container p {
+        font-size: 18px;
+        line-height: 23.4px;
+        max-width: 350px;
+        text-align: center;
+    }
+    .btn{
+        padding: 12px 52px;
+        font-size: 18px;
+        line-height: 23.4px;
+
+    }
+}
+
+@media screen and (max-width:450px) {
+    #error_section{
+        margin-top: 55px;
+    }
+    .cactus {
+        width: 131.69px;
+        height: 118.52px;
+        margin: 0 7px;
+    }
+   
+    .container h1 {
+        font-size: 131.69px;
+        line-height: 118.52px;
+        margin: 0;
+        color: $green-cl;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container h2 {
+        font-size: 40px;
+        line-height: 44px;
+        
+       
+    }
+    .container p {
+        font-size: 18px;
+        line-height: 23.4px;
+        max-width: 350px;
+        text-align: center;
+    }
+    .btn{
+        padding: 12px 52px;
+        font-size: 18px;
+        line-height: 23.4px;
+
+    }
+}
