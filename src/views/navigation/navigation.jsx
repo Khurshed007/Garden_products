@@ -5,7 +5,7 @@ export const Navigation = () => {
  
 
   return (
-    
+    // Links
         <ul>
           <li>
             <NavLink to="/" >
