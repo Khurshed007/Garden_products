@@ -4,11 +4,9 @@ import styles from "./index.module.scss";
 import cn from "classnames";
 import { BASE_URL } from "../../constants";
 
-// import { Categories } from "../../../categories";
-import { themeContext } from "../../context/theme";
+
 
 export const CategoryList = ({image,id,title}) => {
-  const {theme, switchTheme} = useContext(themeContext);
 
 
 

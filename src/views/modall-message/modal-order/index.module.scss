@@ -1,0 +1,166 @@
+@import "../../not-found/index.module.scss";
+:root {
+    --font-family: 'Montserrat', sans-serif;
+    --font-weight: 500;
+    --font-size: 20px;
+    --line-height: 26px;
+    --primary-color: #a4b357;
+    --background-color: #f7f7e8;
+    --border-color: #e0e0e0;
+    --discount-color: #ff6f61;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+  }
+
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+
+  .flex_start{
+    height: auto;
+     flex-direction: column;
+     align-items: flex-start;
+     justify-content: start;
+     display: flex;
+
+  }
+  
+ %icon {
+  width: 22px;
+  height: 25px;
+  fill: #fff;
+  stroke: #fff;
+  cursor: pointer;
+}
+
+.mark_x {
+  @extend %icon;
+  // top: 10px;
+  width: 22px;
+  height: 22px;
+
+  @media screen and (max-width:480px) {
+    width: 20px;
+    height: 20px;
+ }
+
+}
+
+  .title_details{
+    display:grid;
+    // grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
+    .card-item_wrapper__xPmiY{
+      margin: 0;
+    }
+  }
+  .button {
+    position: absolute;
+    top: 11px;
+    right: 11px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .modal {
+    position: relative;
+    background-color:$green-cl;
+    padding: 32px;
+    border-radius: 8px;
+    z-index: 1000;
+    color: #FFFFFF;
+    width: 548px;
+     p,h2 {
+      color: #FFFFFF;
+     }
+    @media screen and (max-width: 700px) {
+      width: 100%;
+      padding: 24px 20px;
+
+      p{
+        max-width: 348px;
+      }
+    }
+      @media screen and (max-width: 400px) {
+       
+        padding: 76px 20px;
+  
+        p{
+          max-width: 280px;
+        }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    
+    
+     p {
+      font-size: 20px;
+      line-height: 22px;
+      font-weight: 600;
+      max-width: 400px;
+      margin-top: 20px;
+
+      @media screen and (max-width:480px) {
+         font-size: 18px;
+         line-height: 19.8px;
+      }
+     }
+    
+  }
+  
+  .modal h2 {
+    margin-top: 0;
+    font-size: 40px;
+    line-height: 44px;
+    @media screen and (max-width:480px) {
+      font-size: 36px;
+      line-height: 39.6px;
+   }
+  }
+  
+  .modalClose {
+
+    background: none;
+    border: none;
+    position: absolute;
+    top: 11px;
+    right: 11px
+    
+  }
+  
+ 
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapper{
+    width: 100%;
+  }
