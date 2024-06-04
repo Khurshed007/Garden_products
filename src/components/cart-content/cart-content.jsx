@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./index.module.scss"; // Подключение модуля стилей
 import CartView from "./cart-view";
-import { cartContext } from "../../context/cart-context";
 
 import { useCartAction } from "../../hooks/useCartAction";
 import { useSelector } from "react-redux";
 import { getAllItems, getCartCounter } from "../../store/selectors";
 import cn from "classnames";
 import { Title } from "../title/title";
-import { ModallMessage } from "../../views/modall-message/modall-message";
 import { ModallNotFound } from "../../views/modall-message/modall-not-found";
 import { Modallordered } from "../../views/modall-message/modal-order/modall_ordered";
 
