@@ -1,0 +1,93 @@
+@import "../../vars.scss";
+
+
+.categories_title {
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+    color: var(--light-dark-cl);
+    @media screen and (max-width: 780px) {
+      margin-top: 32px;
+    }
+  
+}
+
+.categories_text {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 70.4px;
+}
+
+.btn_item {
+   margin-left: 32px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+
+  flex: 1;
+  
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 1px;
+    background-color: $grey-cl;
+
+    z-index: 0;
+  }
+
+  .btn {
+    // width: 142px;
+    // height: 36px; // Убрал, так как не знаю обязательны ли, но доставляют проблем
+    border-radius: 1px;
+    padding: 8px 16px 8px 16px;
+    z-index: 1;
+    color: $grey-cl;
+    outline: none;
+    border: 1px solid $grey-cl;
+    background-color: var(--light-dark-bg);
+    border-radius: $radius-small;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .categories_text {
+    font-size: 56px;
+    line-height: 61.6px;
+    letter-spacing: -1px;
+  }
+  .btn_item{
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .categories_text {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 52.8px;
+  }
+  .btn_item{
+    margin-left: 16px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .btn_item {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .categories_text {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  .btn_item {
+    display: none;
+  }
+}
