@@ -12,6 +12,7 @@ const BodyClassManager = ({ isthemeDark }) => {
     };
   }, [isthemeDark]);
 
+  return null;
 };
 
 export default BodyClassManager;

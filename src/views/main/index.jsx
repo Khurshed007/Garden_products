@@ -12,7 +12,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Loading } from "../loading/loading";
 import { DiscountForm } from "../discount-form/discount-form";
 
-
 export const Main = () => {
   const DATA_DISCOUNT_ITEMS = useData(requestAllProductItem, getDiscountItems);
    const isLoading = useSelector(state => state.shop.isLoading)
@@ -35,8 +34,7 @@ export const Main = () => {
           hideBreadCrumbs = {true}
         />
       </section>
-      <DiscountForm/>
-
+      {<DiscountForm/>}
     </>
   );
 };

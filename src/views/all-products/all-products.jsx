@@ -1,6 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-
-import FilterBlock from "../category/filtered-block/filtered-block";
+import React, { useState} from "react";
 import useData from "../../hooks/useData";
 import { requestAllProductItem } from "../../store/async-action";
 

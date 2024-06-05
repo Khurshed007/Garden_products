@@ -106,9 +106,8 @@ export const NavCartIcon = ({ className }) => (
 export const HeartIcon = ({
   className,
   id,
-  addtoLikes,
+  toggleToLikes,
 }) => {
-  let dispatch = useDispatch()
   return (
     <svg
       width="48"
@@ -116,7 +115,7 @@ export const HeartIcon = ({
       viewBox="0 0 48 48"
       className={className}
       onClick={() => {
-       dispatch(addtoLikes(id)) ;
+       toggleToLikes(id) ;
       }}
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -143,16 +142,8 @@ export const HeartIcon = ({
 export const NavHeartIcon = ({
   className,
   id,
-  addtoLikes,
-  deleteLikes,
-  likesData,
-  likesCounter,
 }) => {
-  let [likeId, setLikeId] = useState("liked");
 
-  //  console.log(likesCounter, "LikesCounter")
-
-  console.log(likesData, likeId, "HeartIcon");
   return (
     <svg
       width="48"
@@ -170,7 +161,6 @@ export const NavHeartIcon = ({
           data-articul={id}
           stroke-linecap="round"
           stroke-linejoin="round"
-          // {console.log(1)}
         />
       </g>
       <defs>

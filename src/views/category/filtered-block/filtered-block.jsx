@@ -54,7 +54,7 @@ const FilterBlock = ({ posts, setFilteredPosts,allSales }) => {
     
         //     return condition;
 
-         let filteredPosts = posts.filter(post => 
+        let filteredPosts = posts.filter(post => 
             postQuery && String(post.price) !== postQuery
             ? false
             : showDiscountedItems && post.discont_price !== null

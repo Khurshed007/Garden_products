@@ -1,12 +1,11 @@
 import React from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styles from "./index.module.scss";
 import { getAllItems } from "../../store/selectors";
 import { requestAllProductItem } from "../../store/async-action";
 import useData from "../../hooks/useData";
 import { BASE_URL } from "../../constants";
 import { useState } from "react";
-import { useCartAction } from "../../hooks/useCartAction";
 import { useDispatch } from "react-redux";
 import { setProductCart } from "../../store/cart-slice";
 import { HeartIcon } from "../../assets/icons";
@@ -18,24 +17,23 @@ import { useShopAction } from "../../hooks/useShopAction";
 export const Product = () => {
   const { productId } = useParams();
   const data = useData(requestAllProductItem, getAllItems);
+   console.log(data[+productId], "Id of Product")
   const [isModallOpen, setIsModallOpen] = useState(false);
- const {toggleToLikes,likesData} = useShopAction()
-  const discoveredItem = data.find(({ id }) => +id === +productId);
-  console.log(discoveredItem.title);
-  const { title, price, discont_price, image, description, id } =
-    discoveredItem;
-  const {
-    handleAddToCart,
-    handleDeleteFromCart,
-    goodsData,
-    goodsCounter,
-    cartId,
-    getCartId,
-  } = useCartAction();
+  const { toggleToLikes, likesData } = useShopAction();
+  // const discoveredItem = data.find(({ id }) => +id === +productId);
+  const discoveredItem = productId ? data[+productId] : [];
+  // const { title, price, discont_price, image, description, id } =
+  //   discoveredItem;
+   const title = discoveredItem ? discoveredItem["title"] : ""
+   const id = discoveredItem ? discoveredItem["id"] : ""
+   const image = discoveredItem ? discoveredItem["image"] : ""
+   const price = discoveredItem ? discoveredItem["price"] : ""
+   const description = discoveredItem ? discoveredItem["description"] : ""
+   const discont_price = discoveredItem ? discoveredItem["discont_price"] : ""
 
-  let dispatch = useDispatch();
-  let [productCounter, setProductCounter] = useState(0);
-  let discontPercent = getDiscountPercent(price, discont_price).toFixed(0);
+  const dispatch = useDispatch();
+  const [productCounter, setProductCounter] = useState(0);
+  const discontPercent = getDiscountPercent(price, discont_price).toFixed(0);
 
   const addCounter = () => {
     setProductCounter((prev) => (prev += 1));
@@ -57,8 +55,7 @@ export const Product = () => {
 
   // ### /products/${itemId}     - ссылка на первый продукт
 
-  //   return <div>product name {itemId}</div>;
-  return (
+  return  (
     <>
       <div
         className={cn(
@@ -69,12 +66,10 @@ export const Product = () => {
       >
         <h2 className={cn(styles.product_title)}>{title}</h2>
         <HeartIcon
-
           className={cn(styles.heart, {
-            // [styles.dark]: theme === "light",
-            [styles.checked]: likesData[id] ,
+            [styles.checked]: likesData[id],
           })}
-          addtoLikes={toggleToLikes}
+          toggleToLikes={toggleToLikes}
           id={id}
           likesData={likesData}
         />
@@ -102,11 +97,10 @@ export const Product = () => {
               <div className={cn(styles.product_header, styles.gap_bottom)}>
                 <h2 className={cn(styles.product_title)}>{title}</h2>
                 <HeartIcon
-             
                   className={cn(styles.heart, {
-                    [styles.checked]: likesData[id]
+                    [styles.checked]: likesData[id],
                   })}
-                  addtoLikes={toggleToLikes}
+                  toggleToLikes={toggleToLikes}
                   id={id}
                   likesData={likesData}
                 />
