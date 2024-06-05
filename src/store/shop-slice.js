@@ -2,6 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import { requestAllProductItem } from './async-action';
 import { requestCurrentCategoryProducts } from './async-action';
 import { requestCategoryItem } from './async-action';
+import { sendSaleData } from './async-action';
 
 
 
@@ -75,6 +76,11 @@ const shopSlice = createSlice({
         builder.addCase(requestCurrentCategoryProducts.fulfilled, (state, {payload}) => {
             state.isLoading = false;
             
+        })
+        builder.addCase(sendSaleData.fulfilled, (state, action) => {
+            if (action.payload.status === 'OK') {
+                state.discountApplied = true;
+            }
         })
     
     }

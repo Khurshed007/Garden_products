@@ -50,4 +50,23 @@ export const requestAllProductItem = createAsyncThunk('shop/requestAllProductIte
     
       
  });
+
+
+ export const sendSaleData = createAsyncThunk(
+    "shop/sendSaleData",
+    async (formData, thunkApi) => {
+      try {
+        const serverResponse = await fetch(`${BASE_URL}/sale/send`, {
+          method: "POST",
+          body: JSON.stringify(formData),
+        });
+        const data = await serverResponse.json();
+  
+        return thunkApi.fulfillWithValue(data);
+      } catch (err) {
+        return thunkApi.rejectWithValue(err);
+      }
+    }
+  );
+  
  

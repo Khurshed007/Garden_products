@@ -21,19 +21,19 @@ export const Product = () => {
   const [isModallOpen, setIsModallOpen] = useState(false);
   const { toggleToLikes, likesData } = useShopAction();
   // const discoveredItem = data.find(({ id }) => +id === +productId);
-  let discoveredItem = productId ? data[+productId] : []
+  const discoveredItem = productId ? data[+productId] : [];
   // const { title, price, discont_price, image, description, id } =
   //   discoveredItem;
-   let title = discoveredItem ? discoveredItem["title"] : ""
-   let id = discoveredItem ? discoveredItem["id"] : ""
-   let image = discoveredItem ? discoveredItem["image"] : ""
-   let price = discoveredItem ? discoveredItem["price"] : ""
-   let description = discoveredItem ? discoveredItem["description"] : ""
-   let discont_price = discoveredItem ? discoveredItem["discont_price"] : ""
+   const title = discoveredItem ? discoveredItem["title"] : ""
+   const id = discoveredItem ? discoveredItem["id"] : ""
+   const image = discoveredItem ? discoveredItem["image"] : ""
+   const price = discoveredItem ? discoveredItem["price"] : ""
+   const description = discoveredItem ? discoveredItem["description"] : ""
+   const discont_price = discoveredItem ? discoveredItem["discont_price"] : ""
 
-  let dispatch = useDispatch();
-  let [productCounter, setProductCounter] = useState(0);
-  let discontPercent = getDiscountPercent(price, discont_price).toFixed(0);
+  const dispatch = useDispatch();
+  const [productCounter, setProductCounter] = useState(0);
+  const discontPercent = getDiscountPercent(price, discont_price).toFixed(0);
 
   const addCounter = () => {
     setProductCounter((prev) => (prev += 1));
@@ -55,7 +55,7 @@ export const Product = () => {
 
   // ### /products/${itemId}     - ссылка на первый продукт
 
-  return !productId ? (<h1>Loading</h1>) : (
+  return  (
     <>
       <div
         className={cn(
