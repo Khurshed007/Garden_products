@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import styles from "./index.module.scss"; // Подключение модуля стилей
 import CartView from "./cart-view";
 

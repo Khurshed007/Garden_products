@@ -18,6 +18,8 @@ export const getMostDiscountedItem = (state, itemId) =>
     return accu;
   }, 0);
 
+  export const getCurrenCategoryProducts = (state) => state.shop.categoryProducts;
+
   export const getLikesCounter = (state => Object.values(state.shop.likesData).filter(liked => liked).length);
 
 

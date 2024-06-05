@@ -1,15 +1,15 @@
-import React from "react";
+import React, {useState } from "react";
 import { RootRoutes } from "./routes";
-import "./index.scss"
 import BodyClassManager from "./views/body-class-toggle";
-import { useShopAction } from "./hooks/useShopAction";
 import { useSelector } from "react-redux";
-export const App = () => {
-  const {theme} = useShopAction()
-  return (
 
+export const App = () => {
+  const theme = useSelector(state =>  state.shop.theme)
+
+
+  return (
     <>
-    <BodyClassManager isthemeDark={theme}/>
+      <BodyClassManager isthemeDark={theme}  />
       <RootRoutes />
     </>
   );

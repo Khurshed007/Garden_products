@@ -1,11 +1,13 @@
 import {createSlice} from '@reduxjs/toolkit';
-
-
+import { requestAllProductItem } from './async-action';
+import { requestCurrentCategoryProducts } from './async-action';
+import { requestCategoryItem } from './async-action';
 
 
 
 const initialState = {
     category: [],
+    categoryProducts: [],
     items: [],
     likesData: {},
     isLoading: false,
@@ -21,6 +23,9 @@ const shopSlice = createSlice({
     reducers: {
         setItems: (state, {payload}) => {
             state.items = payload;
+        },
+        seCategoryProducts: (state, {payload}) => {
+            state.categoryProducts = payload;
         },
         setCategory: (state,  {payload}) => {
             state.category = payload;
@@ -40,10 +45,42 @@ const shopSlice = createSlice({
             state.likesData[payload] = !state.likesData[payload]; // В true или false потому что больше 1 раза не нужно будет мутировать
           },
     },
+    extraReducers: (builder) => {
+        builder.addCase(requestAllProductItem.pending, (state) => {
+            state.isLoading = true;
+        })
+        builder.addCase(requestAllProductItem.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            
+        })
+        builder.addCase(requestCategoryItem.rejected, (state, action) => {
+            state.isLoading = false;
+            state.error = action.error.message;
+        })
+        builder.addCase(requestCategoryItem.pending, (state) => {
+            state.isLoading = true;
+        })
+        builder.addCase(requestCategoryItem.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            
+        })
 
+        builder.addCase(requestCurrentCategoryProducts.rejected, (state, action) => {
+            state.isLoading = false;
+            state.error = action.error.message;
+        })
+        builder.addCase(requestCurrentCategoryProducts.pending, (state) => {
+            state.isLoading = true;
+        })
+        builder.addCase(requestCurrentCategoryProducts.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            
+        })
+    
+    }
 });
 
 
-export const {setItems, setCategory, setIsLoading,setPath, switchTheme,toggleLikes} = shopSlice.actions;
+export const {setItems, setCategory, setIsLoading,setPath, switchTheme,toggleLikes,seCategoryProducts} = shopSlice.actions;
 
 export default shopSlice.reducer;

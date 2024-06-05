@@ -1,7 +1,5 @@
 import { CardItemView } from "./card-item-view";
 import styles from "./index.module.scss";
-import cn from "classnames";
-import { useContext } from "react";
 import { getDiscountPercent } from "../../utils/getDiscountPercent";
 import { Title } from "../title/title";
 import { BreadCrumbs } from "../bread-crumbs/bread-crumbs";
@@ -17,7 +15,8 @@ export const CardItem = ({
   allSales
 }) => {
 
-
+  
+  
   return (
     <>
       {hideBreadCrumbs || <BreadCrumbs />}

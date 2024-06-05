@@ -32,7 +32,11 @@
     color: $light-cl;
   }
 }
-
+.categories_cards_img{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .list {
   a {
     // a потому что наш .categories_cards лежит внутри Link

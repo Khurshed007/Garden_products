@@ -10,31 +10,27 @@ import { useSelector } from "react-redux";
 import { CardItemView } from "../../components/card-item/card-item-view";
 import { BreadCrumbs } from "../../components/bread-crumbs/bread-crumbs";
 import { CardItem } from "../../components/card-item/card-item";
+import useData from "../../hooks/useData";
+import { requestCurrentCategoryProducts } from "../../store/async-action";
+import { getCurrenCategoryProducts } from "../../store/selectors";
+import shopSlice from "../../store/shop-slice";
+import {useDispatch } from "react-redux";
+import { seCategoryProducts } from "../../store/shop-slice";
 
-export const Category = () => {
+
+export const Category = (allCategories) => {
+  const {isLoading} = useSelector((state) => state.shop.isLoading)
   const { categoryId } = useParams();
-  let currentCategory = useSelector(getCategorys)[+categoryId - 1];
-  let currentCategoryTitle = currentCategory.title;
-  const [categoryItems, setCategoryItems] = useState([]);
-
-  useEffect(() => {
-    fetch(`${BASE_URL}/categories/${categoryId}`)
-      .then((res) => {
-        console.log(res);
-        return res.json();
-      })
-      .then(({ data }) => {
-        // У нашего возвр obj есть поле data-massive у которого элементы объекты
-        console.log(Array.isArray(data));
-        setCategoryItems([...data]);
-      });
-  }, []);
-
-  let [filteredPosts, setFilteredPosts] = useState([categoryItems]);
-
-  return (
+  const currentCategory = useSelector(getCategorys)[+categoryId - 1];
+  const dispatch = useDispatch()
+   
+   const data = useData(() => requestCurrentCategoryProducts(+categoryId), getCurrenCategoryProducts);
+  
+   const [filteredPosts, setFilteredPosts] = useState([data]);
+       
+ return  (
     <section>
-      <CardItem dataItems={filteredPosts} text={currentCategoryTitle} filterData={categoryItems} setFilteredPosts={setFilteredPosts} />
+      <CardItem dataItems={filteredPosts}  filterData={data} setFilteredPosts={setFilteredPosts} />  
     </section>
   );
 };
