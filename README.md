@@ -1,70 +1,192 @@
-# Getting Started with Create React App
+# Проект README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## О проекте
 
-## Available Scripts
+### Название проекта
+"Интернет-магазин товаров для дома и сада" (Garden goods)
 
-In the project directory, you can run:
+### Ссылки
+- [Макет проекта](https://www.figma.com/design/SDNWLzCWkh9ZXdCpWEaByv/project-frontend?node-id=7102-25841&t=8I7XJHj2kg8snkKu-0)
+- [Техническое задание (ТЗ) или требования](https://docs.google.com/document/d/1of1D3n_a93wm-7BHfWKqkVa5oe8dUPHJ/edit)
+- [Задеплоенная реализация](URL_to_deployed_application)
 
-### `npm start`
+### Общее описание
+Наш "Интернет-магазин товаров для дома и сада" упрощает покупку товаров для дома и сада. Магазин предлагает скидки на различные товары и позволяет покупателям удобно фильтровать и выбирать продукты. С простым интерфейсом и эффективными фильтрами, нахождение нужного товара становится быстрым и легким.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Скриншот главной страницы
+![Скриншот главной страницы](("form.png"))
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Основной функционал
+- Маршрутизация
+- Фильтрация
+- Покупка товаров
 
-### `npm test`
+## Стек технологий
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Перечисление используемых технологий и их использование
 
-### `npm run build`
+- **Frontend:**
+  - **Html/SCSS:** Верстка и стилизация приложения
+  - **JavaScript:** Динамическое поведение на клиентской стороне
+  - **React:** Создание компонентов пользовательского интерфейса
+  - **Redux-toolkit:** Управление состоянием приложения
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Инструменты разработки:**
+  - **Git:** Система контроля версий
+  - **Webpack:** Сборка и оптимизация ресурсов
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Деплоймент:**
+  - **Render:** Хостинг и развертывание приложения
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Авторы проекта
 
-### `npm run eject`
+### Имя, фамилия: Хуршед Ахмаджонов
+- **Контакты:** khurshedahmadjonov@gmail.com
+- **LinkedIn:** [Хуршед Ахмаджонов](https://www.linkedin.com/in/khurshedahmadjonov/)
+- **Вклад в проект:**
+  - Реализация frontend компонентов
+  - Настройка взаимодействия с backend
+  - Стилизация приложения
+  - Система добавления и удаления лайков
+  - Добавление и удаление товаров из корзины
+  - Управление маршрутизацией
+  - Фильтрация через URL параметры
+  - Приятный дизайн
+  - Возможность читать о продукте
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Если у вас будут вопросы или предложения, пожалуйста, свяжитесь со мной через указанные контакты. Мы всегда рады вашим отзывам!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Project README
 
-### Code Splitting
+## About the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Project Name
+"Online store of goods for home and garden" (Garden goods)
 
-### Analyzing the Bundle Size
+### Links
+- [Project Design](https://www.figma.com/design/SDNWLzCWkh9ZXdCpWEaByv/project-frontend?node-id=7102-25841&t=8I7XJHj2kg8snkKu-0)
+- [Technical Specifications (TS) or Requirements](https://docs.google.com/document/d/1of1D3n_a93wm-7BHfWKqkVa5oe8dUPHJ/edit)
+- [Deployed Application](URL_to_deployed_application)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### General Description
+Our "Home and Garden Products Online Store" makes it easy to shop for home and garden items. The store offers discounts on various products and allows customers to filter and choose products conveniently. With a simple interface and effective filters, finding the right product is quick and easy.
 
-### Making a Progressive Web App
+### Screenshot of the Main Page
+![Screenshot of the Main Page](("form.png"))
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Key Features
+- Routing
+- Filtration
+- Products purchase
 
-### Advanced Configuration
+## Technology Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### List of Used Technologies and Their Purposes
 
-### Deployment
+- **Frontend:**
+  - **Html/SCSS:** Markup and styling of the application
+  - **JavaScript:** Client-side dynamic behavior
+  - **React:** Building user interface components
+   **Redux-toolkit:** Building user interface components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+- **Development Tools:**
+  - **Git:** Version control system
+  - **Webpack:** Resource bundling and optimization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Deployment:**
+  - **Render:** Hosting and deployment of the application
+
+## Project Authors
+
+### Name, Surname: Khurshed Ahmadjonov
+- **Contact:** khurshedahmadjonov@gmail.com
+- **LinkedIn:** [Khurshed Ahmadjonov](https://www.linkedin.com/in/khurshedahmadjonov/)
+- **Contribution to the Project:**
+  - Implementation of frontend components
+  - Setting up interaction with the backend
+  - Styling the application
+  - System for adding and removing likes
+  - Adding and removing items from the cart
+  - Managing routing
+  - Filtering through URL parameters
+  - Pleasant design
+  - Ability to read about the product
+
+
+
+---
+
+If you have any questions or suggestions, please contact me through the provided details. I always welcome your feedback!
+
+---
+
+
+# Projekt README
+
+## Über das Projekt
+
+### Projektname
+"Online-Shop für Haus- und Gartenprodukte" (Garden goods)
+
+### Links
+- [Projektdesign](https://www.figma.com/design/SDNWLzCWkh9ZXdCpWEaByv/project-frontend?node-id=7102-25841&t=8I7XJHj2kg8snkKu-0)
+- [Technische Spezifikationen (TS) oder Anforderungen](https://docs.google.com/document/d/1of1D3n_a93wm-7BHfWKqkVa5oe8dUPHJ/edit)
+- [Bereitgestellte Anwendung](URL_to_deployed_application)
+
+### Allgemeine Beschreibung
+Unser "Online-Shop für Haus- und Gartenprodukte" macht das Einkaufen von Haus- und Gartenartikeln einfach. Der Shop bietet Rabatte auf verschiedene Produkte und ermöglicht es Kunden, Produkte bequem zu filtern und auszuwählen. Mit einer einfachen Benutzeroberfläche und effektiven Filtern ist das Finden des richtigen Produkts schnell und einfach.
+
+### Screenshot der Hauptseite
+![Screenshot der Hauptseite](("form.png"))
+
+### Hauptfunktionen
+- Routing
+- Filtration
+- Produktauswahl
+
+## Technologiestack
+
+### Liste der verwendeten Technologien und deren Zwecke
+
+- **Frontend:**
+  - **Html/SCSS:** Markup und Styling der Anwendung
+  - **JavaScript:** Dynamisches Verhalten auf der Client-Seite
+  - **React:** Erstellen von Benutzeroberflächenkomponenten
+   **Redux-toolkit:** Zustandverwaltung der Anwendung
+
+- **Entwicklungstools:**
+  - **Git:** Versionskontrollsystem
+  - **Webpack:** Ressourcenerstellung und -optimierung
+
+- **Bereitstellung:**
+  - **Render:** Hosting und Bereitstellung der Anwendung
+
+## Projektautoren
+
+### Name, Nachname: Khurshed Ahmadjonov
+- **Kontakt:** khurshedahmadjonov@gmail.com
+- **LinkedIn:** [Khurshed Ahmadjonov](https://www.linkedin.com/in/khurshedahmadjonov/)
+- **Beitrag zum Projekt:**
+  - Implementierung der Frontend-Komponenten
+  - Einrichtung der Interaktion mit dem Backend
+  - Styling der Anwendung
+  - System zum Hinzufügen und Entfernen von Likes
+  - Hinzufügen und Entfernen von Artikeln aus dem Warenkorb
+  - Verwaltung der Routing
+  - Filtern durch URL-Parameter
+  - Angenehmes Design
+  - Möglichkeit, Informationen über das Produkt zu lesen
+
+---
+
+Wenn Sie Fragen oder Vorschläge haben, kontaktieren Sie uns bitte über die angegebenen Kontaktdaten. Wir freuen uns immer über Ihr Feedback!
+
+---

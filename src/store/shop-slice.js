@@ -16,6 +16,7 @@ const initialState = {
     theme : "light",
     error: null,
     likesData: {},
+    discountApplied : false
 };
 
 const shopSlice = createSlice({

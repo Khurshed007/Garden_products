@@ -42,7 +42,6 @@ section {
     }
   }
   h1 {
-    font-family: "Montserrat";
     font-weight: 700;
     font-size: 64px;
     line-height: 70.4px;
@@ -95,7 +94,6 @@ section {
 .categories_cards_text {
   width: 100%;
   height: 26px;
-  font-family: "Montserrat";
   font-weight: 500;
   font-size: 20px;
   line-height: 26px;
@@ -127,7 +125,6 @@ section {
 
 .wrapper {
   border-radius: 12px;
-  font-family: " Montserrat";
   margin-top: 40px;
   background-color: var(--card-light-dark-bg);
   &:not(:last-child) {
@@ -189,7 +186,6 @@ section {
   top: 10px;
   width: 67px;
   height: 34px;
-  font-family: "Montserrat";
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
@@ -267,7 +263,6 @@ section {
 .prices {
   margin-top: 10px;
   display: flex;
-  font-family: " Montserrat";
   font-weight: 600;
   font-size: 40px;
   line-height: 44px;
