@@ -5,7 +5,7 @@
   height: 70px;
   margin-right: 20px;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 760px) {
     width: 44px;
     height: 44px;
   }
@@ -27,7 +27,8 @@
   
   }
 
-  @media screen and (max-width: 480px) {
+
+  @media screen and (max-width: 760px) {
     position: absolute;
     right: 0;
     top: 0;
@@ -109,8 +110,8 @@
     padding: 30px 20px;
   }
 
-  @media screen and (max-width: 480px) {
-    padding: 0;
+  @media screen and (max-width: 760px) {
+    padding: 12px 12px  12px 20px;
   }
 }
 
@@ -146,11 +147,7 @@ a.active {
   }
 }
 
-@media (max-width: 1400px) {
-  .heart {
-    display: none;
-  }
-}
+
 
 .heart,
 .cart {

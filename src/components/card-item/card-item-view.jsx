@@ -9,9 +9,10 @@ import { useCartAction } from "../../hooks/useCartAction";
 import cn from "classnames"
 import { useSelector } from "react-redux";
 import { useShopAction } from "../../hooks/useShopAction";
+import { memo } from "react";
 
 
-export const CardItemView = ({
+ const CardItemView = ({
   price,
   image,
   discont,
@@ -27,7 +28,7 @@ export const CardItemView = ({
 const {handleCartState,goodsData } = useCartAction()
 let isDiscont = discont !== null;
   return (
-    <div className={cn(styles.wrapper, {[styles.wrapper__no_margin] : noMargin})}>
+    <div key={id} className={cn(styles.wrapper, {[styles.wrapper__no_margin] : noMargin})}>
     <div className={styles.header}>
       {isDiscont && (
         <div className={styles.discount}>{discontPercent}%</div>
@@ -63,3 +64,5 @@ let isDiscont = discont !== null;
   </div>
   );
 };
+
+export const MemoCardItemView = memo(CardItemView)

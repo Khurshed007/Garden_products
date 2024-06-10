@@ -179,20 +179,17 @@ section {
 }
 
 .discount {
-  background-color: orange;
   color: #fff;
   position: absolute;
   left: 10px;
   top: 10px;
-  width: 67px;
-  height: 34px;
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
   letter-spacing: 3%;
   padding: 4px 8px 4px 8px;
   border-radius: 5px;
-  background-color: $green-cl;
+  background-color: $sale-cl;
 }
 
 %icon {
@@ -250,7 +247,7 @@ section {
 .info {
   border-radius: 0px 0 12px 12px;
   padding: 10px;
-  border: 1px solid $grey-second-cl;
+  border: 1px solid var(--border-primary);
   background-color: var(--card-light-dark-bg);
   height: 118px;
   color: var(--light-dark-cl);

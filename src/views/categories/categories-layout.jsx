@@ -18,11 +18,11 @@ export const CategoriesLayout = ({showBreadCrumbs,categoriesItem, text, btnText,
   return (
     <>
       <section>
-        <Title  text = {text} btnText = {btnText} btnDispplay = {btnDispplay} />
+        <Title  text = {text} btnText = {btnText} btnDispplay = {btnDispplay} path={"categories"}/>
       {showBreadCrumbs && <BreadCrumbs />} 
         <div className={styles.list}>
           {DATA_CATEGORY.map(({ image, id, title }) => (
-            <CategoryList id={id} image={image} title={title} />
+            <CategoryList id={id} image={image} title={title} key={id} />
           ))}
         </div>
       </section>

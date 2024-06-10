@@ -1,4 +1,5 @@
 @import "../../vars.scss";
+// @import "../../components/form-inputs/index.module.scss";
 
 .shopping_cart {
   display: flex;
@@ -233,6 +234,7 @@
   padding: 32px 20px;
   border-radius: 8px;
   width: 33%;
+  height: fit-content;
 }
 
 .order_details h2 {
@@ -261,6 +263,9 @@
   display: flex;
   align-items: flex-end;
 }
+.input_wrapper{
+  background-color: red;
+}
 
 .order_form {
   margin-top: 20px;
@@ -277,6 +282,7 @@
     font-size: 20px;
     line-height: 20px;
     background-color: var(--light-dark-bg);
+    color: var(--light-dark-cl);
   }
 
   button {

@@ -1,5 +1,5 @@
 @import "../../vars.scss";
-@import "../categories/index.module.scss";
+
 
 .card_content {
   margin-top: 32px;
@@ -8,6 +8,28 @@
     margin-top: 24px;
   }
 }
+%icon {
+
+  right: 10px;
+  width: 43px;
+  height: 44px;
+  cursor: pointer;
+}
+
+
+.icons {
+  @extend %icon;
+  width: 43px;
+  height: 44px;
+  margin-top: 20px;
+  fill: var(--second-light-dark-cl);
+
+  &:not(:last-child){
+    margin-right: 3px;
+  }
+}
+
+
 
 footer {
   padding:0 40px 80px 40px;
@@ -35,14 +57,9 @@ footer {
   border-radius: 12px;
 }
 
-.first_card {
-  width: 780px;
-}
+
 
 .second_card {
-  // width: 548px;
-  flex-grow: 1;
-  // margin-bottom: 32px;
   @media screen and (max-width: 1400px) {
     width: 548px;
     flex-grow: 0;
@@ -59,7 +76,7 @@ footer {
   line-height: 44px;
   margin-top: 16px;
   font-weight: 600;
-  color: var(--light-dark-cl);
+  color: var(--second-light-dark-cl);
 }
 
 .cards span {
@@ -82,7 +99,22 @@ footer {
     &:not(:last-child) {
       margin-right: 32px;
     }
-    flex: 1;
+    // flex: 1;
+    &.first_card{
+      flex: 1.5;
+    }
+    &.second_card{
+      flex: 1;
+    }
+
+    @media screen and (max-width:1000px) {
+       &.first_card{
+      flex: 1;
+    }
+    &.second_card{
+      flex: 1;
+    }
+    }
   }
 }
 .cards_item_down {

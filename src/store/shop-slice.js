@@ -6,6 +6,7 @@ import { sendSaleData } from './async-action';
 
 
 
+
 const initialState = {
     category: [],
     categoryProducts: [],
@@ -76,6 +77,7 @@ const shopSlice = createSlice({
         })
         builder.addCase(requestCurrentCategoryProducts.fulfilled, (state, {payload}) => {
             state.isLoading = false;
+            state.categoryProducts = payload;
             
         })
         builder.addCase(sendSaleData.fulfilled, (state, action) => {
@@ -88,6 +90,5 @@ const shopSlice = createSlice({
 });
 
 
-export const {setItems, setCategory, setIsLoading,setPath, switchTheme,toggleLikes,seCategoryProducts} = shopSlice.actions;
-
+export const {setItems, setCategory, setIsLoading,setPath, switchTheme,toggleLikes,seCategoryProducts,discountApplied} = shopSlice.actions;
 export default shopSlice.reducer;

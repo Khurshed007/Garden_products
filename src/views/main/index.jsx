@@ -14,16 +14,11 @@ import { DiscountForm } from "../discount-form/discount-form";
 
 export const Main = () => {
   const DATA_DISCOUNT_ITEMS = useData(requestAllProductItem, getDiscountItems);
-   const isLoading = useSelector(state => state.shop.isLoading)
-   let dispatch = useDispatch()
 
-
-
-
-  // isLoading ? (<Loading/>) :
   return   (
     <>
       <Head />
+      
       <Categories showBreadCrumbs = {false}  categoriesItem = {4} btnText = {"All Categories"} btnDispplay = {true} />
       <section>
         <CardItem
@@ -32,6 +27,7 @@ export const Main = () => {
           btnText={"All Sales"}
           btnDispplay={true}
           hideBreadCrumbs = {true}
+          path={"all-sales"}
         />
       </section>
       {<DiscountForm/>}

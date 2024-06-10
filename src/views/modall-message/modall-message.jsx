@@ -1,17 +1,12 @@
-import styles from "./index.module.scss";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { BASE_URL } from "../../constants";
-import { useSelector } from "react-redux";
-import { getDiscountItems } from "../../store/selectors";
-import { getDiscountPercent } from "../../utils/getDiscountPercent";
-import { useDispatch } from "react-redux";
 
-import { ModallImg } from "./modall-img";
-import { ModallMostDiscounted } from "./modall-most-discount";
-import { ModallNotFound } from "./modall-not-found";
+import { useDispatch } from "react-redux";
+import { ModallImg } from "./modal-img/modall-img";
+import { ModallMostDiscounted } from "./modal-discount/modall-most-discount";
 import { Modallordered } from "./modal-order/modall_ordered";
-export const ModallMessage = ({
+
+import { memo } from "react";
+
+ const ModallMessage = ({
   setIsModallOpen,
   isModallOpen,
   onlyImg,
@@ -20,10 +15,7 @@ export const ModallMessage = ({
   notFound,
   congrates,
 }) => {
-  // const mostDiscountedItem = useSelector(getDiscountItems)[0];
 
-  // const { description, id, image, price, title, discont_price } =
-  //   mostDiscountedItem;
 
   const dispatch = useDispatch();
   const handleCloseModal = () => {
@@ -63,13 +55,5 @@ export const ModallMessage = ({
   return <>{isModallOpen && <>{renderModalContent()}</>}</>;
 };
 
-// <div className={styles.container}>
-//   <p>
-//     We're sorry, the page you requested could not be found. Please go back
-//     to the homepage.
-//   </p>
-//   <Link to="/" className={styles.btn}>
-//     Go Home
-//   </Link>
-//   <br />
-// </div>
+
+export const MemoModallMessage = memo(ModallMessage);

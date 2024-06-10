@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from "react";
 import styles from "./index.module.scss"; // Подключение модуля стилей
-import CartView from "./cart-view";
+import { MemoCartView } from "./cart-view";
 
 import { useCartAction } from "../../hooks/useCartAction";
 import { useSelector } from "react-redux";
@@ -9,8 +9,11 @@ import cn from "classnames";
 import { Title } from "../title/title";
 import { ModallNotFound } from "../../views/modall-message/modall-not-found";
 import { Modallordered } from "../../views/modall-message/modal-order/modall_ordered";
+import { useShopAction } from "../../hooks/useShopAction";
+import { getFivePercentDiscount } from "../../utils/getFivePercentDiscount";
+import { FormInputs } from "../form-inputs/form-inputs";
+import { DiscountInput } from "../../views/discount-form";
 
-let s = 0;
 const CartContent = () => {
   const {
     handleAddToCart,
@@ -24,18 +27,17 @@ const CartContent = () => {
   // Calculate total sum whenever goodsData or DATA_ALL_PRODUCTS changes
   const [totalSum, setTotalSum] = useState(0);
   const DATA_ALL_PRODUCTS = useSelector(getAllItems);
-  const [isModallOpen, setIsModallOpen] = useState(false)
-  const cartCounter = useSelector(getCartCounter)
-
+  const [isModallOpen, setIsModallOpen] = useState(false);
+  const cartCounter = useSelector(getCartCounter);
+  const {isDiscountApplied} = useShopAction();
 
   const handleOpenModal = ()=> {
     setIsModallOpen(true)
   }
-
   const goodsDataKeys =
     Object.keys(goodsData)
       .map((item) => Number(item))
-      .filter((item) => typeof item === "number") || [];
+      .filter((item) => typeof item === "number") 
   useEffect(() => {
     let sum = 0;
     goodsDataKeys.forEach((key) => {
@@ -50,12 +52,7 @@ const CartContent = () => {
     });
     setTotalSum(sum);
   }, [goodsData, DATA_ALL_PRODUCTS]);
-  // const currentPrice = DATA_ALL_PRODUCTS[Number(cartId) - 1]["price"];
-  // const currenttitle = DATA_ALL_PRODUCTS[Number(cartId) - 1]["title"];
-  // const currentDiscontPrice =
-  //   DATA_ALL_PRODUCTS[Number(cartId) - 1]["discont_price"];
   const totalItem = Object.keys(goodsData).length;
-  // const currentOrderSum = goodsData[goodsCounter]
 
 
 
@@ -73,7 +70,7 @@ const CartContent = () => {
         <div className={styles.shopping_cart}>
           <div className={styles.cart_content}>
             {goodsDataKeys.map((articul) => (
-              <CartView
+              <MemoCartView
                 key={articul}
                 articul={articul}
                 goodsData={goodsData}
@@ -95,23 +92,13 @@ const CartContent = () => {
               <div className={styles.total_price_details}>
                 <span className={styles.litle_font}>Total</span>
                 <span className={styles.total_price}>
-                  ${totalSum.toFixed(2)}
+                  {isDiscountApplied ?  `$${getFivePercentDiscount(totalSum)}` : `$${totalSum.toFixed(2)}`}  
                 </span>
               </div>
             </div>
-            <form className={styles.order_form}>
-              <input type="text" placeholder="Name" />
-              <input type="text" placeholder="Phone number" />
-              <input type="email" placeholder="Email" />
-              <div className={styles.btn_item}>
-                <button onClick={(e) => {
-                    e.preventDefault(); // чтобы остановить обновления страницы
-                    handleOpenModal();
-                }} className={styles.btn} >
-                  Order
-                </button>
-              </div>
-            </form>
+            <div className={styles.order_form}> 
+          <DiscountInput  text={"Order"}/>
+          </div>
           </div>
         </div>
         <Modallordered isModallOpen={isModallOpen} setIsModallOpen={setIsModallOpen}/>

@@ -5,6 +5,7 @@ import { getAllItems } from "../../store/selectors";
 import { BASE_URL } from "../../constants";
 import cn from "classnames";
 import { memo } from "react";
+import { XMark } from "../../assets/icons";
 
 const CartView =  memo(({
   goodsData,
@@ -69,7 +70,7 @@ const CartView =  memo(({
         </div>
       </div>
     </>
-  );
+  )
 });
 
-export default CartView;
+export const MemoCartView = memo(CartView);
