@@ -1,0 +1,45 @@
+@import "../../vars.scss";
+// @import "../cart-content/index.module.scss";
+
+input {
+  padding: 16px 32px;
+  border-radius: $radius-small;
+  width: 100%;
+  border: 1px solid $light-bg;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  background-color: transparent;
+  outline: none;
+  color: $light-cl;
+  &::placeholder {
+    color: $light-cl;
+  }
+}
+
+.input_wrapper:not(:last-child) {
+  margin-bottom: 10px;
+}
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  input {
+    width: 100%;
+  }
+}
+.message {
+  color: red;
+  margin-top: 5px;
+}
+
+button {
+  padding: 16px 20px;
+  background-color: #fff;
+  color: #1e8e3e;
+  border: none;
+  border-radius: $radius-small;
+  font-size: 20px;
+  line-height: 26px;
+  cursor: pointer;
+}

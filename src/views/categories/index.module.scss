@@ -6,7 +6,9 @@
   flex-direction: column;
   border-radius: $radius-big;
 }
-
+.list{
+  gap: 0;
+}
 .categories_cards_img {
   border-radius: $radius-big;
   width: 100%;
@@ -111,13 +113,6 @@
   }
   .categories_cards {
   }
-
-  // .categories_text{
-  //    font-size: 48px;
-  //    font-weight: 700;
-  //   line-height: 52.8px;
-
-  // }
 
   .list {
     a {

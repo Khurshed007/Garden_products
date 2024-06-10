@@ -1,15 +1,5 @@
 @import "../../not-found/index.module.scss";
-:root {
-    --font-family: 'Montserrat', sans-serif;
-    --font-weight: 500;
-    --font-size: 20px;
-    --line-height: 26px;
-    --primary-color: #a4b357;
-    --background-color: #f7f7e8;
-    --border-color: #e0e0e0;
-    --discount-color: #ff6f61;
-  }
-  
+
   .container {
     display: flex;
     justify-content: center;

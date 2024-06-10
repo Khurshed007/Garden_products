@@ -12,7 +12,7 @@ import { HeartIcon } from "../../assets/icons";
 import cn from "classnames";
 import { getDiscountPercent } from "../../utils/getDiscountPercent";
 import { BreadCrumbs } from "../../components/bread-crumbs/bread-crumbs";
-import { ModallMessage } from "../modall-message/modall-message";
+import { MemoModallMessage } from "../modall-message/modall-message";
 import { useShopAction } from "../../hooks/useShopAction";
 export const Product = () => {
   const { productId } = useParams();
@@ -157,7 +157,7 @@ export const Product = () => {
           <p>{description}</p>
         </div>
       </div>
-      <ModallMessage
+      <MemoModallMessage
         onlyImg={true}
         productImg={image}
         isModallOpen={isModallOpen}

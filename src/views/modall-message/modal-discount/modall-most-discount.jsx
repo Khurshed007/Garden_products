@@ -1,13 +1,13 @@
 import styles from "./index.module.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { BASE_URL } from "../../constants";
-import { getDiscountItems } from "../../store/selectors";
-import { getDiscountPercent } from "../../utils/getDiscountPercent";
+import { BASE_URL } from "../../../constants";
+import { getDiscountItems } from "../../../store/selectors";
+import { getDiscountPercent } from "../../../utils/getDiscountPercent";
 import { useDispatch, useSelector } from "react-redux";
-import { useCartAction } from "../../hooks/useCartAction";
-import { XMark } from "../../assets/icons";
-import { CardItemView } from "../../components/card-item/card-item-view";
+import { useCartAction } from "../../../hooks/useCartAction";
+import { XMark } from "../../../assets/icons";
+import { MemoCardItemView } from "../../../components/card-item/card-item-view";
 export const ModallMostDiscounted = ({
   setIsModallOpen,
   isModallOpen,
@@ -30,10 +30,10 @@ export const ModallMostDiscounted = ({
 
         <div className={styles.title_details}>
           <h2>
-            {getDiscountPercent(price, discont_price)}% discount on product of
+            {getDiscountPercent(price, discont_price).toFixed(0)}% discount on product of
             the day!
           </h2>
-          <CardItemView
+          <MemoCardItemView
             description={description}
             id={id}
             image={image}

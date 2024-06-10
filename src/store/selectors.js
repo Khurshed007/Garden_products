@@ -1,5 +1,44 @@
-import { useSelector } from "react-redux";
-import { getDiscountPercent } from "../utils/getDiscountPercent";
+
+
+import { createSelector } from 'reselect'; // Месоизация для Selectors
+import { getDiscountPercent } from '../utils/getDiscountPercent';
+
+// Пример состояния
+const getItems = (state) => state.shop.items;
+
+export const getDiscountItems = createSelector( // getDiscountItems возвращает новый массив или объект при каждом вызове, даже если данные в состоянии Redux не изменились
+  [getItems],       
+  (items) => {
+    return items
+      .filter(({ discont_price }) => discont_price !== null)
+      .sort(
+        (elem, elem2) =>
+          getDiscountPercent(elem2.price, elem2.discont_price) -
+          getDiscountPercent(elem.price, elem.discont_price)
+      )
+      .slice(0, 4);
+  }
+);
+
+
+// export const getDiscountItems = (state) => {
+//   const items = [...state.shop.items];
+
+//   return items
+//   // .sort(() => Math.random() - 0.5) // Перемешиваем элементы в случайном порядке
+//   .sort(
+//     (elem, elem2) =>
+//       getDiscountPercent(elem2.price, elem2.discont_price) -
+//       getDiscountPercent(elem.price, elem.discont_price)
+//   )
+//   .filter(({ discont_price }, index) => discont_price !== null && index < 4);
+// };
+
+
+
+
+
+
 
 export const getCategorys = (state) => state.shop.category; // 5 CategoryItems
 
@@ -30,18 +69,7 @@ export const getCartCounter = (state) =>
     accu += item;
     return accu;
   }, 0);
-export const getDiscountItems = (state) => {
-  const items = [...state.shop.items];
 
-  return items
-  // .sort(() => Math.random() - 0.5) // Перемешиваем элементы в случайном порядке
-  .sort(
-    (elem, elem2) =>
-      getDiscountPercent(elem2.price, elem2.discont_price) -
-      getDiscountPercent(elem.price, elem.discont_price)
-  )
-  .filter(({ discont_price }, index) => discont_price !== null && index < 4);
-};
 
 export const getAllItems = (state) => state.shop.items;
 

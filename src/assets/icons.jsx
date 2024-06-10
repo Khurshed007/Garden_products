@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useContext, useMemo, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-export const XMark = ({className}) => (
+export const XMark = ({ className }) => (
   <svg
     fill="#FFFFFF"
     height="22px"
@@ -11,7 +11,6 @@ export const XMark = ({className}) => (
     id="Capa_1"
     viewBox="0 0 460.775 460.775"
     className={className}
-
   >
     <path
       d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55
@@ -23,6 +22,25 @@ export const XMark = ({className}) => (
     />
   </svg>
 );
+
+export const InstagramIcon = ({className}) => (
+  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30" className={className}>
+  <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"></path>
+  
+
+</svg>
+);
+
+export const WhatsappIcon = ({className}) => (
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24"  fill="#000" className={className}>
+  
+<path d="M19.1,4.9C17.2,3,14.7,2,12,2C6.5,2,2,6.5,2,12c0,1.8,0.5,3.5,1.3,5L2,22l5.2-1.2C8.7,21.6,10.3,22,12,22	
+c5.5,0,10-4.5,10-10C22,9.3,21,6.8,19.1,4.9z M16.9,15.6c-0.2,0.6-1.2,1.1-1.7,1.2c-0.5,0-0.9,0.2-3-0.6c-2.5-1-4.1-3.6-4.3-3.8	
+c-0.1-0.2-1-1.4-1-2.6S7.5,8,7.8,7.7C8,7.4,8.3,7.4,8.5,7.4s0.3,0,0.5,0s0.4,0,0.6,0.4c0.2,0.5,0.7,1.7,0.8,1.9	c0.1,0.2,0.1,0.3,0,0.4c-0.1,0.1-0.1,0.3-0.2,0.4c-0.1,0.1-0.3,0.3-0.4,0.4c-0.1,0.1-0.3,0.3-0.1,0.5c0.1,0.3,0.6,1.1,1.4,1.7	c1,0.9,1.8,1.1,2,1.2c0.3,0.1,0.4,0.1,0.5-0.1c0.1-0.2,0.6-0.7,0.8-1c0.2-0.3,0.3-0.2,0.6-0.1c0.3,0.1,1.5,0.7,1.7,0.8	
+c0.3,0.1,0.4,0.2,0.5,0.3C17.1,14.5,17.1,15,16.9,15.6z"></path>
+</svg>
+)
+
 export const CartIcon = ({ className, handleCartState, id, select }) => (
   <svg
     width="48"
@@ -35,24 +53,24 @@ export const CartIcon = ({ className, handleCartState, id, select }) => (
     viewBox="0 0 8.61 9.48"
   >
     <path
-      class="fil0 str0"
-      fill-rule="nonzero"
-      stroke-width="0.38"
-      stroke-miterlimit="22.9256"
+      className="fil0 str0"
+      fillRule="nonzero"
+      strokeWidth="0.38"
+      strokeMiterlimit="22.9256"
       d="M0.99 2.56l-0.78 6.73 8.18 0 -0.02 -0.2 -0.76 -6.53c-2.2,0 -4.41,0 -6.62,0z"
       stroke="#424436"
       fill="none"
     ></path>
     <path
-      class="fil1"
+      className="fil1"
       d="M6.25 3.12c0.11,0 0.2,0.09 0.2,0.2 0,0.11 -0.09,0.2 -0.2,0.2 -0.11,0 -0.2,-0.09 -0.2,-0.2 0,-0.11 0.09,-0.2 0.2,-0.2z"
       stroke="#424436"
     ></path>
     <line
-      class="fil0 str0"
-      fill-rule="nonzero"
-      stroke-width="0.38"
-      stroke-miterlimit="22.9256"
+      className="fil0 str0"
+      fillRule="nonzero"
+      strokeWidth="0.38"
+      strokeMiterlimit="22.9256"
       x1="2.36"
       y1="3.21"
       x2="2.35"
@@ -60,24 +78,24 @@ export const CartIcon = ({ className, handleCartState, id, select }) => (
       stroke="#424436"
     ></line>
     <path
-      class="fil0 str0"
-      fill-rule="nonzero"
-      stroke-width="0.38"
-      stroke-miterlimit="22.9256"
+      className="fil0 str0"
+      fillRule="nonzero"
+      strokeWidth="0.38"
+      strokeMiterlimit="22.9256"
       d="M6.25 2.56l-3.9 0 0.01 -0.45c0,-1.07 0.86,-1.92 1.94,-1.92 1.08,0 1.95,0.85 1.95,1.92l0 0.45z"
       stroke="#424436"
       fill="transparent"
     ></path>
     <path
-      class="fil1"
+      className="fil1"
       d="M2.36 3.12c0.1,0 0.2,0.08 0.2,0.18 0,0.1 -0.08,0.18 -0.2,0.18 -0.12,0 -0.2,-0.08 -0.2,-0.18 0,-0.1 0.08,-0.18 0.2,-0.18z"
       stroke="#424436"
     ></path>
     <line
-      class="fil0 str0"
-      fill-rule="nonzero"
-      stroke-width="0.38"
-      stroke-miterlimit="22.9256"
+      className="fil0 str0"
+      fillRule="nonzero"
+      strokeWidth="0.38"
+      strokeMiterlimit="22.9256"
       x1="6.26"
       y1="3.21"
       x2="6.25"
@@ -103,11 +121,7 @@ export const NavCartIcon = ({ className }) => (
   </svg>
 );
 
-export const HeartIcon = ({
-  className,
-  id,
-  toggleToLikes,
-}) => {
+export const HeartIcon = ({ className, id, toggleToLikes }) => {
   return (
     <svg
       width="48"
@@ -115,18 +129,18 @@ export const HeartIcon = ({
       viewBox="0 0 48 48"
       className={className}
       onClick={() => {
-       toggleToLikes(id) ;
+        toggleToLikes(id);
       }}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_10472_5577)">
+      <g clipPath="url(#clip0_10472_5577)">
         <path
           d="M39.4 32.2222C42.678 29.14 46 25.4456 46 20.6111C46 17.5317 44.7252 14.5783 42.456 12.4008C40.1868 10.2233 37.1091 9 33.9 9C30.028 9 27.3 10.0556 24 13.2222C20.7 10.0556 17.972 9 14.1 9C10.8909 9 7.8132 10.2233 5.54401 12.4008C3.27482 14.5783 2 17.5317 2 20.6111C2 25.4667 5.3 29.1611 8.6 32.2222L24 47L39.4 32.2222Z"
           stroke="#424436" // Border-color
-          stroke-width="1" // Border-size
-          data-articul={id}
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1" // Border-size
+          dataarticul={id}
+          strokeLinecap="round"
+          strokeLinejoin="round"
           // {console.log(1)}
         />
       </g>
@@ -139,11 +153,7 @@ export const HeartIcon = ({
   );
 };
 
-export const NavHeartIcon = ({
-  className,
-  id,
-}) => {
-
+export const NavHeartIcon = ({ className, id }) => {
   return (
     <svg
       width="48"
@@ -153,14 +163,14 @@ export const NavHeartIcon = ({
       className={className}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_10472_5577)">
+      <g clipPath="url(#clip0_10472_5577)">
         <path
           d="M39.4 32.2222C42.678 29.14 46 25.4456 46 20.6111C46 17.5317 44.7252 14.5783 42.456 12.4008C40.1868 10.2233 37.1091 9 33.9 9C30.028 9 27.3 10.0556 24 13.2222C20.7 10.0556 17.972 9 14.1 9C10.8909 9 7.8132 10.2233 5.54401 12.4008C3.27482 14.5783 2 17.5317 2 20.6111C2 25.4667 5.3 29.1611 8.6 32.2222L24 47L39.4 32.2222Z"
           stroke="#424436"
-          stroke-width="2.2"
-          data-articul={id}
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2.2"
+          dataarticul={id}
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -182,7 +192,7 @@ export const LogoIcon = ({ className }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <circle cx="35" cy="35" r="35" fill="#92A234" />
-    <g clip-path="url(#clip0_10472_5587)">
+    <g clipPath="url(#clip0_10472_5587)">
       <mask
         id="mask0_10472_5587"
         // style="mask-type:alpha"
@@ -193,8 +203,8 @@ export const LogoIcon = ({ className }) => (
         height="26"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M46.9315 60.2366C45.7201 57.6671 43.1064 55.8889 40.0774 55.8889C38.8873 55.8889 37.7613 56.1634 36.7593 56.6525C36.1944 56.176 35.4647 55.8889 34.6678 55.8889C33.2497 55.8889 32.0439 56.7984 31.6021 58.0659C30.4976 58.1468 29.4954 58.5962 28.718 59.2917C28.375 59.1895 28.0116 59.1346 27.6354 59.1346C26.1051 59.1346 24.7868 60.0424 24.1896 61.3488C21.5525 61.71 19.5209 63.9718 19.5209 66.7081C19.5209 69.6958 21.9428 72.1177 24.9305 72.1177C25.3177 72.1177 25.6954 72.0771 26.0595 71.9997C26.5435 76.925 30.6972 80.7731 35.7497 80.7731C40.4014 80.7731 44.2913 77.5113 45.2569 73.1501C45.5093 73.1828 45.7668 73.1997 46.0281 73.1997C49.3145 73.1997 51.9787 70.5355 51.9787 67.2491C51.9787 65.3421 51.0817 63.6446 49.6866 62.5556C49.3267 61.3163 48.2479 60.3828 46.9315 60.2366Z"
           fill="white"
         />
@@ -245,7 +255,7 @@ export const SunIcon = ({ className }) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#clip0_5447_25609)">
+    <g clipPath="url(#clip0_5447_25609)">
       <path
         d="M9.99882 16.7622C9.64236 16.7622 9.35352 17.051 9.35352 17.4075V19.3557C9.35352 19.7122 9.64236 20.0011 9.99882 20.0011C10.3553 20.0011 10.6441 19.7122 10.6441 19.3557V17.4075C10.6441 17.051 10.3553 16.7622 9.99882 16.7622Z"
         fill="#8B8B8B"
