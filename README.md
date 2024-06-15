@@ -8,13 +8,12 @@
 ### Ссылки
 - [Макет проекта](https://www.figma.com/design/SDNWLzCWkh9ZXdCpWEaByv/project-frontend?node-id=7102-25841&t=8I7XJHj2kg8snkKu-0)
 - [Техническое задание (ТЗ) или требования](https://docs.google.com/document/d/1of1D3n_a93wm-7BHfWKqkVa5oe8dUPHJ/edit)
-- [Задеплоенная реализация](URL_to_deployed_application)
+- [Задеплоенная реализация](https://garden-products-yzsu.onrender.com)
 
 ### Общее описание
 Наш "Интернет-магазин товаров для дома и сада" упрощает покупку товаров для дома и сада. Магазин предлагает скидки на различные товары и позволяет покупателям удобно фильтровать и выбирать продукты. С простым интерфейсом и эффективными фильтрами, нахождение нужного товара становится быстрым и легким.
 
-### Скриншот главной страницы
-![Скриншот главной страницы](("form.png"))
+
 
 ### Основной функционал
 - Маршрутизация
@@ -73,13 +72,10 @@
 ### Links
 - [Project Design](https://www.figma.com/design/SDNWLzCWkh9ZXdCpWEaByv/project-frontend?node-id=7102-25841&t=8I7XJHj2kg8snkKu-0)
 - [Technical Specifications (TS) or Requirements](https://docs.google.com/document/d/1of1D3n_a93wm-7BHfWKqkVa5oe8dUPHJ/edit)
-- [Deployed Application](URL_to_deployed_application)
+- [Deployed Application](https://garden-products-yzsu.onrender.com)
 
 ### General Description
 Our "Home and Garden Products Online Store" makes it easy to shop for home and garden items. The store offers discounts on various products and allows customers to filter and choose products conveniently. With a simple interface and effective filters, finding the right product is quick and easy.
-
-### Screenshot of the Main Page
-![Screenshot of the Main Page](("form.png"))
 
 ### Key Features
 - Routing
@@ -139,13 +135,11 @@ If you have any questions or suggestions, please contact me through the provided
 ### Links
 - [Projektdesign](https://www.figma.com/design/SDNWLzCWkh9ZXdCpWEaByv/project-frontend?node-id=7102-25841&t=8I7XJHj2kg8snkKu-0)
 - [Technische Spezifikationen (TS) oder Anforderungen](https://docs.google.com/document/d/1of1D3n_a93wm-7BHfWKqkVa5oe8dUPHJ/edit)
-- [Bereitgestellte Anwendung](URL_to_deployed_application)
+- [Bereitgestellte Anwendung](https://garden-products-yzsu.onrender.com)
 
 ### Allgemeine Beschreibung
 Unser "Online-Shop für Haus- und Gartenprodukte" macht das Einkaufen von Haus- und Gartenartikeln einfach. Der Shop bietet Rabatte auf verschiedene Produkte und ermöglicht es Kunden, Produkte bequem zu filtern und auszuwählen. Mit einer einfachen Benutzeroberfläche und effektiven Filtern ist das Finden des richtigen Produkts schnell und einfach.
 
-### Screenshot der Hauptseite
-![Screenshot der Hauptseite](("form.png"))
 
 ### Hauptfunktionen
 - Routing
