@@ -1,4 +1,4 @@
-@import "../../../vars.scss";
+@import "../../vars.scss";
 // .filter_block {
 //     display: flex;
 //     flex-wrap: wrap;
@@ -30,8 +30,16 @@
   padding: 8px 16px;
   border-radius: $radius-small; 
   outline: none;
-
+  background-color: $light-cl;
+  font-size: 14px;
+  line-height: 20.16px;
+  font-weight: 500;
+  color: $dark-cl;
+  &::placeholder{
+    color: $dark-cl;
+  }
 }
+
 .discount{
     width: 36px;
     height: 36px;
@@ -46,7 +54,7 @@
 
 
 .sort {
-  width: 200px;     
+  width: 205px;     
   height: 36px;           
   border: 1px solid $grey-cl; 
   background-color: $light-cl; 
@@ -54,6 +62,9 @@
   padding: 8px 16px;       
   box-sizing: border-box;
   outline: none;
+  font-size: 14px;
+  line-height: 20.16px;
+  font-weight: 500;
 }
 
 label{
@@ -73,6 +84,9 @@ label{
   align-items: center;
   flex-wrap: wrap;
   margin-top: 40px;
+  font-size: 14px;
+  line-height: 20.16px;
+  font-weight: 500;
 
   @media screen and (max-width: 780px) {
     margin-top: 32px;

@@ -21,6 +21,9 @@ const cartSlice = createSlice({
       const { articul } = action.payload;
       state.goodsData[articul] = 0;
     },
+    resetGoodsData : (state, _) => {
+      state.goodsData = {}
+    },
 
     setProductCart: (state, { payload }) => { // Этот reducer для одного продукта
       const { productCounter, id } = payload; // productCounter(число) приходит от личного стейта внутри компонента одного product
@@ -33,6 +36,7 @@ const cartSlice = createSlice({
       state.goodsData[select] = Number(!state.goodsData[select]); // В Number потому что в дальнейшем нужно будет увеличить счетчик
     },
   },
+  
 });
 
 export const {
@@ -42,22 +46,6 @@ export const {
   setCartId,
   setProductCart,
   toggleCartItem,
+  resetGoodsData
 } = cartSlice.actions;
 export default cartSlice.reducer;
-      //    console.log(state.selectedData, "Select ToggleCart")
-      //    console.log(state.goodsData, "goodsData of Toggle")
-      //   if (!state.selectedData[select]) {
-      //     state.selectedData[select] = "selected";
-      //     state.goodsData[articul] += 1;
-      //     if(state.goodsData[articul] === 0){
-      //         state.goodsData[articul] = 1
-      //     }
-      //     state.counter++
-      //   }else if(state.selectedData[select] === "selected"  ) {
-      //     delete state.selectedData[select];
-      //     state.goodsData[articul] -= 1;
-      //     state.counter--
-      // }
-      //   if( state.goodsData[articul] < 1){
-      //     delete state.goodsData[articul]
-      //   }

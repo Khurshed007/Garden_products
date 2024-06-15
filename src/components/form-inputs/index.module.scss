@@ -29,8 +29,10 @@ input {
   }
 }
 .message {
-  color: red;
-  margin-top: 5px;
+  color: $light-bg;
+  margin-left: 4px;
+  font-size: 16px;
+  line-height: 20.6px;
 }
 
 button {
@@ -42,4 +44,28 @@ button {
   font-size: 20px;
   line-height: 26px;
   cursor: pointer;
+}
+
+.error_content{
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+%icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+.icon {
+  @extend %icon;
+  width: 20px;
+  height: 20px;
+  fill: #CB0505;
+  path {
+    stroke: #FFFFFF;
+  }
+
 }

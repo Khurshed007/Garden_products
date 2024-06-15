@@ -68,9 +68,11 @@ export const Layout = () => {
           <Footer />
         </>
       )} */}
-
+            
        <Navigation />
-          <Outlet />
+
+      
+          <Outlet /> 
 
           <Footer /> 
     </main>

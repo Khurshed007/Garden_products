@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { CardItem } from "../../components/card-item/card-item";
 import { Head } from "./head/head";
 import { Categories } from "../categories";
@@ -8,8 +8,6 @@ import { requestAllProductItem } from "../../store/async-action";
 import { getDiscountItems } from "../../store/selectors";
 // Кастомный хук
 import useData from "../../hooks/useData";
-import { useSelector, useDispatch } from "react-redux";
-import { Loading } from "../loading/loading";
 import { DiscountForm } from "../discount-form/discount-form";
 
 export const Main = () => {
@@ -19,7 +17,7 @@ export const Main = () => {
     <>
       <Head />
       
-      <Categories showBreadCrumbs = {false}  categoriesItem = {4} btnText = {"All Categories"} btnDispplay = {true} />
+      <Categories categoriesItem = {4} btnText = {"All Categories"} btnDispplay = {true} hideBreadCrumbs = {true} gap={true}/>
       <section>
         <CardItem
           dataItems={DATA_DISCOUNT_ITEMS}

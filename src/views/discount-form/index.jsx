@@ -11,26 +11,27 @@ import { TEXT_REGULAR } from "../../constants";
 import { NAME_REGEX } from "../../constants";
 import { PHONE_REGULAR } from "../../constants";
 import cn from "classnames"
-export const DiscountInput = ({fullWidth, text}) => {
+export const DiscountInput = ({fullWidth, text, order, register, errors,control}) => {
     const dispatch = useDispatch();
     const isDiscountApplied = useSelector((state) => state.shop.discountApplied);
   
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },
-      control,
-    } = useForm();
+    // const {
+    //   register,
+    //   handleSubmit,
+    //   formState: { errors },
+    //   control,
+    // } = useForm();
   
     const onFormSubmit = (formData) => {
-      dispatch(sendSaleData(formData));
+     dispatch(sendSaleData(formData));
     };
   
     return (
-        <form
-        onSubmit={handleSubmit(onFormSubmit)}
-        className={styles.form__form}
-      >
+      //   <form
+      //   onSubmit={handleSubmit(onFormSubmit)}
+      //   className={styles.form__form}
+      // >
+      <>
         <FormInputs
           inputPlaceholder={"Name"}
           inputTyp={"text"}
@@ -40,10 +41,10 @@ export const DiscountInput = ({fullWidth, text}) => {
           errors={errors}
           name="userName"
           rules={{
-            required: "ЭТО ПОЛЕ ОБЯЗАТЕЛЬНО!",
+            required: "Wrong input. Try again",
             pattern: {
               value: NAME_REGEX,
-              message: "ТУТ ДОЛЖНЫ БЫТЬ ТОЛЬКО буквы",
+              message: "Only letters should be here",
             },
           }}
         />
@@ -57,10 +58,10 @@ export const DiscountInput = ({fullWidth, text}) => {
           errors={errors}
           name="userPhone"
           rules={{
-            required: "ЭТО ПОЛЕ ОБЯЗАТЕЛЬНО!",
+            required: "Wrong input. Try again",
             pattern: {
               value: PHONE_REGEX,
-              message: "После каждого третьего числа должно следовать -",
+              message: "Every third number must be followed by -",
             },
           }}
         />
@@ -75,10 +76,10 @@ export const DiscountInput = ({fullWidth, text}) => {
           errors={errors}
           name="userEmail"
           rules={{
-            required: "ЭТО ПОЛЕ ОБЯЗАТЕЛЬНО!",
+            required: "Wrong input. Try again",
             pattern: {
               value: EMAIL_REGEX,
-              message: "Введите @ и часть вашего адреса",
+              message: "Enter @ and part of your address",
             },
           }}
         />
@@ -90,7 +91,8 @@ export const DiscountInput = ({fullWidth, text}) => {
         >
           {isDiscountApplied ? "Request applied" : text}
         </button>
-      </form>
+       </>
+      // </form>
 
     );
   };

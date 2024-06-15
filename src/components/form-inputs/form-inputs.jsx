@@ -1,6 +1,7 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 import styles from "./index.module.scss";
+import { XOctagon } from "../../assets/icons";
 
 export const FormInputs = ({
   inputPlaceholder,
@@ -12,8 +13,6 @@ export const FormInputs = ({
   control,
   errors,
 }) => {
-
-  console.log(inputRegular,"REGULAR")
   return (
     <Controller
       name={name}
@@ -32,7 +31,11 @@ export const FormInputs = ({
             }
           />
           {errors[name] && (
-            <span className={styles.message}>{errors[name].message}</span>
+            <div className={styles.error_content}>
+              {" "}
+              <XOctagon className={styles.icon} />{" "}
+              <span className={styles.message}>{errors[name].message}</span>
+            </div>
           )}
         </div>
       )}

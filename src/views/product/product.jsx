@@ -17,19 +17,16 @@ import { useShopAction } from "../../hooks/useShopAction";
 export const Product = () => {
   const { productId } = useParams();
   const data = useData(requestAllProductItem, getAllItems);
-   console.log(data[+productId], "Id of Product")
+  console.log(data[+productId], "Id of Product");
   const [isModallOpen, setIsModallOpen] = useState(false);
   const { toggleToLikes, likesData } = useShopAction();
-  // const discoveredItem = data.find(({ id }) => +id === +productId);
   const discoveredItem = productId ? data[+productId] : [];
-  // const { title, price, discont_price, image, description, id } =
-  //   discoveredItem;
-   const title = discoveredItem ? discoveredItem["title"] : ""
-   const id = discoveredItem ? discoveredItem["id"] : ""
-   const image = discoveredItem ? discoveredItem["image"] : ""
-   const price = discoveredItem ? discoveredItem["price"] : ""
-   const description = discoveredItem ? discoveredItem["description"] : ""
-   const discont_price = discoveredItem ? discoveredItem["discont_price"] : ""
+  const title = discoveredItem ? discoveredItem["title"] : "";
+  const id = discoveredItem ? discoveredItem["id"] : "";
+  const image = discoveredItem ? discoveredItem["image"] : "";
+  const price = discoveredItem ? discoveredItem["price"] : "";
+  const description = discoveredItem ? discoveredItem["description"] : "";
+  const discont_price = discoveredItem ? discoveredItem["discont_price"] : "";
 
   const dispatch = useDispatch();
   const [productCounter, setProductCounter] = useState(0);
@@ -55,7 +52,7 @@ export const Product = () => {
 
   // ### /products/${itemId}     - ссылка на первый продукт
 
-  return  (
+  return (
     <>
       <div
         className={cn(
@@ -126,7 +123,6 @@ export const Product = () => {
                   <button className={styles.btn} onClick={deleteCounter}>
                     -
                   </button>
-                  {/* <input type="number" value={productCounter} /> */}
                   <span className={styles.counter}>{productCounter} </span>
                   <button className={styles.btn} onClick={addCounter}>
                     +

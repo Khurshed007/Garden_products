@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import { getDiscountPercent } from "../../utils/getDiscountPercent";
 import { Title } from "../title/title";
 import { BreadCrumbs } from "../bread-crumbs/bread-crumbs";
-import FilterBlock from "../../views/category/filtered-block/filtered-block";
+import FilterBlock from "../filtered-block/filtered-block";
 export const CardItem = ({
   dataItems,
   text,

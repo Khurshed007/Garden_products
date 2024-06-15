@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import { requestAllProductItem } from './async-action';
 import { requestCurrentCategoryProducts } from './async-action';
 import { requestCategoryItem } from './async-action';
-import { sendSaleData } from './async-action';
+import { sendSaleData,sendOrderData } from './async-action';
 
 
 
@@ -17,7 +17,8 @@ const initialState = {
     theme : "light",
     error: null,
     likesData: {},
-    discountApplied : false
+    discountApplied : false,
+    orderApplied:false
 };
 
 const shopSlice = createSlice({
@@ -85,10 +86,15 @@ const shopSlice = createSlice({
                 state.discountApplied = true;
             }
         })
+        builder.addCase(sendOrderData.fulfilled, (state, action) => {
+            if (action.payload.status === 'OK') {
+                state.orderApplied = true;
+            }
+        })
     
     }
 });
 
 
-export const {setItems, setCategory, setIsLoading,setPath, switchTheme,toggleLikes,seCategoryProducts,discountApplied} = shopSlice.actions;
+export const {setItems, setCategory, setIsLoading,setPath, switchTheme,toggleLikes,seCategoryProducts,discountApplied,orderApplied} = shopSlice.actions;
 export default shopSlice.reducer;

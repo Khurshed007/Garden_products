@@ -61,7 +61,7 @@
 
 .right_card {
   margin-left: 32px;
-  background-color: var(--light-dark-bg);
+  background-color: var(--primary-bg);
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -125,7 +125,7 @@
   position: relative;
   width: 359px;
   height: 70px;
-  color: var(--light-dark-cl);
+  color: var(--primary-cl);
   margin: 10px 0;
   display: flex;
    align-items: flex-end;
@@ -213,7 +213,7 @@ del{
   justify-content: center;
   border-bottom:1px solid $grey-cl;
   border-top:1px solid $grey-cl;
-  color: var(--light-dark-cl);
+  color: var(--primary-cl);
 }
 .add_to_cart {
   background-color: $green-cl;
@@ -229,7 +229,8 @@ del{
    width: 316px;
    height: 58px;
    &:hover{
-    background-color: $dark-cl;
+    background-color: var(--primary-cl);
+    color: var(--primary-bg);
   }
    @media screen and (max-width:1400px) {
       // widt

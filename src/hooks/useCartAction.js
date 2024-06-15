@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { addToCart, deleteFromCart, setCartId, deleteAllCart,toggleCartItem  } from "../store/cart-slice";
+import { addToCart, deleteFromCart, setCartId, deleteAllCart,toggleCartItem,resetGoodsData  } from "../store/cart-slice";
 
 export const useCartAction =  () => {
 
@@ -29,6 +29,10 @@ let dispatch = useDispatch()
         dispatch(toggleCartItem({ articul,select }));
       };
 
-      return {handleAddToCart, handleDeleteFromCart, goodsData, goodsCounter, cartId, getCartId, DeleteCart,handleCartState,selectedData}
+      const resetCart = () => {
+        dispatch(resetGoodsData());
+      };
+
+      return {handleAddToCart, handleDeleteFromCart,resetCart, goodsData, goodsCounter, cartId, getCartId, DeleteCart,handleCartState,selectedData}
 }
 

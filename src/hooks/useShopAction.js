@@ -12,6 +12,7 @@ export const useShopAction =  () => {
    const likesCounter = useSelector(getLikesCounter);
    const categoryProducts = useSelector((state) => state.shop.categoryProducts);
    const isDiscountApplied = useSelector((state) => state.shop.discountApplied);
+   const isOrderApplied = useSelector((state) => state.shop.orderApplied);
    const dispatch = useDispatch()
 
     const toggleToLikes = (articul) => {
@@ -24,6 +25,6 @@ export const useShopAction =  () => {
       const toggleTheme = () => {
         dispatch(switchTheme())
       }
-      return {toggleToLikes,  setPathValue, toggleTheme, likesData, theme, isLoading, isError, path, likesCounter,categoryProducts,isDiscountApplied}
+      return {toggleToLikes,isOrderApplied,setPathValue, toggleTheme, likesData, theme, isLoading, isError, path, likesCounter,categoryProducts,isDiscountApplied}
 }
 

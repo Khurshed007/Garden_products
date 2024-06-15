@@ -58,8 +58,8 @@ const CartView =  memo(({
             <div className={cn(styles.price_details, styles.gap_bottom)}>
               {currentDiscontPrice ? (
                 <>
-                  <span className={styles.price}>${currentPrice}</span>
-                  <del>${currentDiscontPrice}</del>
+                  <span className={styles.price}>${currentDiscontPrice}</span>
+                  <del>${currentPrice}</del>
                   <span className={styles.discount_item}></span>
                 </>
               ) : (

@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
-    color: var(--light-dark-cl);
+    color: var(--primary-cl);
     @media screen and (max-width: 780px) {
       margin-top: 32px;
     }
@@ -47,7 +47,7 @@
     color: $grey-cl;
     outline: none;
     border: 1px solid $grey-cl;
-    background-color: var(--light-dark-bg);
+    background-color: var(--primary-bg);
     border-radius: $radius-small;
 
   }

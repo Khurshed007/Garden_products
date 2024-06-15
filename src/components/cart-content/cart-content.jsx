@@ -13,8 +13,24 @@ import { useShopAction } from "../../hooks/useShopAction";
 import { getFivePercentDiscount } from "../../utils/getFivePercentDiscount";
 import { FormInputs } from "../form-inputs/form-inputs";
 import { DiscountInput } from "../../views/discount-form";
-
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { sendSaleData,sendOrderData } from "../../store/async-action";
 const CartContent = () => {
+  const onFormSubmit = (formData) => {
+    dispatch(sendOrderData(formData));
+    setIsModallOpen(true)
+   };
+   const dispatch = useDispatch();
+   const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm();
+
+
+
   const {
     handleAddToCart,
     handleDeleteFromCart,
@@ -96,9 +112,9 @@ const CartContent = () => {
                 </span>
               </div>
             </div>
-            <div className={styles.order_form}> 
-          <DiscountInput  text={"Order"}/>
-          </div>
+            <form className={styles.order_form} onSubmit={handleSubmit(onFormSubmit)}> 
+          <DiscountInput register={register} errors={errors} control={control} text={"Order"} />
+          </form>
           </div>
         </div>
         <Modallordered isModallOpen={isModallOpen} setIsModallOpen={setIsModallOpen}/>
@@ -112,6 +128,7 @@ const CartContent = () => {
         text={"Shopping cart"}
         btnText={"Back To the Store"}
         btnDispplay={true}
+        path={"/"}
       />
       {renderContent()}
     </section>

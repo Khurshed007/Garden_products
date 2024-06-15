@@ -9,6 +9,14 @@
 .list{
   gap: 0;
 }
+.gap{
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.gap:not(:last-child){
+  margin-right: 100px;
+}
+
 .categories_cards_img {
   border-radius: $radius-big;
   width: 100%;
@@ -29,10 +37,7 @@
   line-height: 26px;
   text-align: center;
   margin-top: 10px;
-
-  &.dark {
-    color: $light-cl;
-  }
+  color: var(--primary-cl);
 }
 .categories_cards_img{
   background-position: center;

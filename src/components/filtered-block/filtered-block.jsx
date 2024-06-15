@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import styles from './index.module.scss';
-import { getDiscountPercent } from '../../../utils/getDiscountPercent';
+import styles from "./index.module.scss";
+import { getDiscountPercent} from "../../utils/getDiscountPercent";
 import { useSearchParams } from 'react-router-dom';
-import cn from "classnames"
 
 const FilterBlock = ({ posts, setFilteredPosts,allSales }) => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -88,7 +87,7 @@ const FilterBlock = ({ posts, setFilteredPosts,allSales }) => {
                 //   return  new Date(b.updatedAt) - new Date(a.updatedAt) // По Дате
                 // } );
                 filteredPosts.sort((a, b) => {
-                    return  a.title.localeCompare(b.title) // Пол Алфавиту
+                    return  a.title.localeCompare(b.title) // По Алфавиту
                   } );
             }
             else {

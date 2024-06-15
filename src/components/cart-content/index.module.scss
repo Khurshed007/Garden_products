@@ -28,7 +28,7 @@
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
-  background-color: var(--card-light-dark-bg);
+  background-color: var(--card-bg);
 
   &:not(:last-child) {
     margin-bottom: 16px;
@@ -131,7 +131,7 @@
     justify-content: center;
     border-bottom: 1px solid $grey-cl;
     border-top: 1px solid $grey-cl;
-    color: var(--light-dark-cl);
+    color: var(--primary-cl);
   }
 }
 //// Quantity
@@ -161,7 +161,7 @@
     font-size: 40px;
     line-height: 44px;
     font-weight: 600;
-    color: var(--light-dark-cl);
+    color: var(--primary-cl);
   }
 
   @media screen and (max-width: 480px) {
@@ -230,7 +230,7 @@
 }
 
 .order_details {
-  background-color: var(--second-light-dark-bg);
+  background-color: var(--secondary-bg);
   padding: 32px 20px;
   border-radius: 8px;
   width: 33%;
@@ -240,7 +240,7 @@
 .order_details h2 {
   font-size: 40px;
   line-height: 44px;
-  color: var(--light-dark-cl);
+  color: var(--primary-cl);
 }
 .litle_font {
   font-size: 40px;
@@ -253,7 +253,7 @@
   font-size: 64px;
   line-height: 70.4px;
   font-weight: 700;
-  color: var(--light-dark-cl);
+  color: var(--primary-cl);
 }
 .summary {
   margin-top: 12px;
@@ -281,9 +281,12 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 20px;
-    background-color: var(--light-dark-bg);
-    color: var(--light-dark-cl);
+    background-color: var(--primary-bg);
+    color: $grey-second-cl;
   }
+  input::placeholder {
+    color: $grey-second-cl; 
+}
 
   button {
     width: 100%;

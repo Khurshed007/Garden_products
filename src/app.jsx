@@ -1,6 +1,6 @@
-import React, {useState } from "react";
+import React from "react";
 import { RootRoutes } from "./routes";
-import BodyClassManager from "./views/body-class-toggle";
+import BodyClassManager from "./components/body-class-toggle";
 import { useSelector } from "react-redux";
 
 export const App = () => {

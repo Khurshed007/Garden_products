@@ -22,7 +22,7 @@
   width: 43px;
   height: 44px;
   margin-top: 20px;
-  fill: var(--second-light-dark-cl);
+  fill: var(--secondary-cl);
 
   &:not(:last-child){
     margin-right: 3px;
@@ -53,7 +53,7 @@ footer {
 
 .cards {
   padding: 32px;
-  background-color: var(--second-light-dark-bg);
+  background-color: var(--secondary-bg);
   border-radius: 12px;
 }
 
@@ -76,7 +76,7 @@ footer {
   line-height: 44px;
   margin-top: 16px;
   font-weight: 600;
-  color: var(--second-light-dark-cl);
+  color: var(--secondary-cl);
 }
 
 .cards span {

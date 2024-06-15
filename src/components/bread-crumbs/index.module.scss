@@ -10,7 +10,7 @@
   }
 
   .breadcrumb_item {
-    background-color: var(--light-dark-bg);
+    background-color: var(--primary-bg);
     border: 1px solid $grey-second-cl;
     border-radius: $radius-small;
     padding: 8px 16px;
@@ -21,7 +21,7 @@
     
 
    &:last-child{
-    color: var(--crumbs-light-dark-cl);
+    color: var(--crumbs-cl);
    }
     &:not(:last-child)::after {
       content: '';
