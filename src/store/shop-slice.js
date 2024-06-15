@@ -55,27 +55,19 @@ const shopSlice = createSlice({
         })
         builder.addCase(requestAllProductItem.fulfilled, (state, {payload}) => {
             state.isLoading = false;
-            
-        })
-        builder.addCase(requestCategoryItem.rejected, (state, action) => {
-            state.isLoading = false;
-            state.error = action.error.message;
-        })
-        builder.addCase(requestCategoryItem.pending, (state) => {
-            state.isLoading = true;
+
+            state.items = payload
         })
         builder.addCase(requestCategoryItem.fulfilled, (state, {payload}) => {
             state.isLoading = false;
+            state.category = payload;
+            
+        })
+        builder.addCase(requestCategoryItem.pending, (state) => {
+            state.isLoading = true;
             
         })
 
-        builder.addCase(requestCurrentCategoryProducts.rejected, (state, action) => {
-            state.isLoading = false;
-            state.error = action.error.message;
-        })
-        builder.addCase(requestCurrentCategoryProducts.pending, (state) => {
-            state.isLoading = true;
-        })
         builder.addCase(requestCurrentCategoryProducts.fulfilled, (state, {payload}) => {
             state.isLoading = false;
             state.categoryProducts = payload;

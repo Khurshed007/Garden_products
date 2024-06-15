@@ -37,7 +37,8 @@ const CartView =  memo(({
         <div className={styles.product_details}>
           <div className={styles.product_header}>
             <h2>{currenttitle}</h2>
-            <button onClick={() => deleteCart(id)} className={styles.remove_item}>x</button>
+            <XMark resetCart={deleteCart} id={id} className={styles.remove_item}/>
+            {/* <button onClick={() => deleteCart(id)} className={styles.remove_item}>{<XMark className={styles.remove_item}/>}</button> */}
           </div>
           <div className={styles.product_details_down}>
             <div className={cn(styles.quantity, styles.gap_bottom)}>

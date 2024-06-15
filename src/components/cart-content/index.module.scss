@@ -79,15 +79,13 @@
   }
 }
 
-.remove_item {
-  background: none;
-  border: none;
-  color: #ff6b6b;
-  font-size: 1.5rem;
+.remove_item {  
+  width: 24px;
+  height: 24px;
+  
   cursor: pointer;
-  height: 100%;
-  display: flex;
   align-items: flex-start;
+  fill: $dark-cl;
 }
 
 .product_details_down {

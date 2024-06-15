@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./index.module.scss";
 import { getAllItems } from "../../store/selectors";
 import { requestAllProductItem } from "../../store/async-action";
-import useData from "../../hooks/useData";
 import { BASE_URL } from "../../constants";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -15,12 +14,21 @@ import { BreadCrumbs } from "../../components/bread-crumbs/bread-crumbs";
 import { MemoModallMessage } from "../modall-message/modall-message";
 import { useShopAction } from "../../hooks/useShopAction";
 export const Product = () => {
+  const dispatch = useDispatch();
   const { productId } = useParams();
-  const data = useData(requestAllProductItem, getAllItems);
-  console.log(data[+productId], "Id of Product");
+   const {items} = useShopAction()
+   useEffect(() => {
+    if(!items.length || !items){
+       dispatch(requestAllProductItem())  
+    }
+   }, [dispatch])
+  
+
+
+
   const [isModallOpen, setIsModallOpen] = useState(false);
   const { toggleToLikes, likesData } = useShopAction();
-  const discoveredItem = productId ? data[+productId] : [];
+  const discoveredItem = items[+productId] 
   const title = discoveredItem ? discoveredItem["title"] : "";
   const id = discoveredItem ? discoveredItem["id"] : "";
   const image = discoveredItem ? discoveredItem["image"] : "";
@@ -28,7 +36,7 @@ export const Product = () => {
   const description = discoveredItem ? discoveredItem["description"] : "";
   const discont_price = discoveredItem ? discoveredItem["discont_price"] : "";
 
-  const dispatch = useDispatch();
+
   const [productCounter, setProductCounter] = useState(0);
   const discontPercent = getDiscountPercent(price, discont_price).toFixed(0);
 

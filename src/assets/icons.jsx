@@ -23,14 +23,14 @@ export const XOctagon = ({className}) => (
 </svg>
 )
 
-export const XMark = ({ className,resetCart }) => (
+export const XMark = ({ className,resetCart,id }) => (
   <svg
     fill="#FFFFFF"
     height="22px"
     width="22px"
     version="1.1"
     id="Capa_1"
-    onClick={resetCart}
+    onClick={() => {resetCart(id)}}
     viewBox="0 0 460.775 460.775"
     className={className}
   >

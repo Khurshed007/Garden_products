@@ -4,7 +4,7 @@ import { createSelector } from 'reselect'; // Месоизация для Select
 import { getDiscountPercent } from '../utils/getDiscountPercent';
 
 // Пример состояния
-const getItems = (state) => state.shop.items;
+export const getItems = (state) => state.shop.items;
 
 export const getDiscountItems = createSelector( // getDiscountItems возвращает новый массив или объект при каждом вызове, даже если данные в состоянии Redux не изменились
   [getItems],       
