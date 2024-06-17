@@ -22,7 +22,6 @@ export const RootRoutes = () => {
         <Route path="cart" element={<CartContent />} />
         <Route path="*" element={<NotFound />} />
       </Route>
-      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

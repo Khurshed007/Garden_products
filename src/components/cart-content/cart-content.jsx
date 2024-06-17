@@ -33,7 +33,7 @@ const CartContent = () => {
     handleDeleteFromCart,
     goodsData,
     getCartId,
-    DeleteCart,
+    deleteCart,
   } = useCartAction();
 
   const DATA_ALL_PRODUCTS = useSelector(getAllItems);
@@ -87,7 +87,7 @@ const CartContent = () => {
                 deleteFromCart={handleDeleteFromCart}
                 getCartId={getCartId}
                 id={articul}
-                deleteCart={DeleteCart}
+                deleteCart={deleteCart}
                 items = {items}
               />
             ))}
