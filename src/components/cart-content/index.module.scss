@@ -1,5 +1,7 @@
 @import "../../vars.scss";
-// @import "../../components/form-inputs/index.module.scss";
+@import "../form-inputs/index.module.scss";
+
+
 
 .shopping_cart {
   display: flex;
@@ -62,7 +64,6 @@
 .product_header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 16px;
 }
 

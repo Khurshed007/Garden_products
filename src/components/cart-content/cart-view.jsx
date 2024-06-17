@@ -1,11 +1,10 @@
 import React from "react";
 import styles from "./index.module.scss"; // Подключение модуля стилей
-import { useSelector } from "react-redux";
-import { getAllItems } from "../../store/selectors";
 import { BASE_URL } from "../../constants";
 import cn from "classnames";
 import { memo } from "react";
 import { XMark } from "../../assets/icons";
+
 
 const CartView =  memo(({
   goodsData,
@@ -15,18 +14,16 @@ const CartView =  memo(({
   articul,
   id,
   deleteCart,
+  items
 }) => {
-  const DATA_ALL_PRODUCTS = useSelector(getAllItems);
-  const currentPrice = DATA_ALL_PRODUCTS[Number(articul) - 1]["price"];
-  const currenttitle = DATA_ALL_PRODUCTS[Number(articul) - 1]["title"];
-  const image = DATA_ALL_PRODUCTS[Number(articul) - 1]["image"];
-  const currentDiscontPrice =
-    DATA_ALL_PRODUCTS[Number(articul) - 1]["discont_price"];
-  const totalSum = Number(
-    currentDiscontPrice ? currentDiscontPrice * counter : currentPrice * counter
-  ); // Если Discont то будет цена браться по Discont
-  const currentOrderSum = goodsData[articul];
+  const DATA_ALL_PRODUCTS = items.find((e) => e.id === id);
+
+
+
+const {price:currentPrice,title:currenttitle,image, discont_price:currentDiscontPrice} = DATA_ALL_PRODUCTS;
     console.log("I am Memo")
+
+    
   return  Boolean(goodsData[id]) && ( // Завернул goodsData[id] в Boolean потому что иначе будет 0 рисоваться
     
     <>

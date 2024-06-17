@@ -13,7 +13,7 @@ export const RootRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Main />} />
+        <Route index element={<Main />} /> // НАШ ПЕРВЫЙ Эл в Outlet
         <Route path="categories/*" element={<Categories />} />
         <Route path="all-sales/*" element={<AllSalesRoute />} />
         <Route path="all-products/*" element={<AllProductsRoute />} />
@@ -22,6 +22,7 @@ export const RootRoutes = () => {
         <Route path="cart" element={<CartContent />} />
         <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

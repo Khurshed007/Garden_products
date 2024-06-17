@@ -13,6 +13,7 @@ import { getDiscountPercent } from "../../utils/getDiscountPercent";
 import { BreadCrumbs } from "../../components/bread-crumbs/bread-crumbs";
 import { MemoModallMessage } from "../modall-message/modall-message";
 import { useShopAction } from "../../hooks/useShopAction";
+
 export const Product = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
@@ -22,13 +23,10 @@ export const Product = () => {
        dispatch(requestAllProductItem())  
     }
    }, [dispatch])
-  
-
-
 
   const [isModallOpen, setIsModallOpen] = useState(false);
   const { toggleToLikes, likesData } = useShopAction();
-  const discoveredItem = items[+productId] 
+  const discoveredItem = items[+productId-1] 
   const title = discoveredItem ? discoveredItem["title"] : "";
   const id = discoveredItem ? discoveredItem["id"] : "";
   const image = discoveredItem ? discoveredItem["image"] : "";

@@ -11,7 +11,7 @@ import { TEXT_REGULAR } from "../../constants";
 import { NAME_REGEX } from "../../constants";
 import { PHONE_REGULAR } from "../../constants";
 import cn from "classnames"
-export const DiscountInput = ({fullWidth, text, order, register, errors,control}) => {
+export const DiscountInput = ({fullWidth, text, order, register, errors,control,lightColor}) => {
     const dispatch = useDispatch();
     const isDiscountApplied = useSelector((state) => state.shop.discountApplied);
   
@@ -27,12 +27,10 @@ export const DiscountInput = ({fullWidth, text, order, register, errors,control}
     };
   
     return (
-      //   <form
-      //   onSubmit={handleSubmit(onFormSubmit)}
-      //   className={styles.form__form}
-      // >
+      
       <>
         <FormInputs
+          lightColor = {lightColor}
           inputPlaceholder={"Name"}
           inputTyp={"text"}
           inputRegular={TEXT_REGULAR}
@@ -50,6 +48,7 @@ export const DiscountInput = ({fullWidth, text, order, register, errors,control}
         />
 
         <FormInputs
+        lightColor = {lightColor}
           inputPlaceholder={"Phone Number"}
           inputTyp={"tel"}
           inputRegular={PHONE_REGULAR}
@@ -67,6 +66,7 @@ export const DiscountInput = ({fullWidth, text, order, register, errors,control}
         />
 
         <FormInputs
+        lightColor = {lightColor}
           inputPlaceholder={"Email"}
           inputTyp={"email"}
           inputRegular={/\d/g}

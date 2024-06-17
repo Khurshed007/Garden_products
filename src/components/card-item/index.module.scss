@@ -119,6 +119,7 @@ section {
 
   a {
     // a потому что наш .categories_cards лежит внутри Link
+    width:100%;
     &:not(:last-child) {
       margin-right: 20px;
     }
@@ -131,6 +132,7 @@ section {
 }
 
 .wrapper {
+  width: 100%;
   border-radius: 12px;
   margin-top: 40px;
   background-color: var(--card-bg);
@@ -274,7 +276,7 @@ section {
   align-items: flex-end;
   color: var(--primary-cl);
 }
-.newPrice {
+.new_price {
   font-size: 20px;
   line-height: 26px;
   margin-left: 10px;

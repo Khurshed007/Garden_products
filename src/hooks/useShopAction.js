@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
 
 import { setPath, switchTheme, toggleLikes } from "../store/shop-slice";
-import { getLikesCounter, getItems, getCategorys,getAllSales } from "../store/selectors";
+import { getLikesCounter, getItems, getCategorys,getAllSales,getDiscountItems } from "../store/selectors";
 
 export const useShopAction = () => {
   const likesData = useSelector((state) => state.shop.likesData);
@@ -15,22 +16,37 @@ export const useShopAction = () => {
   const isOrderApplied = useSelector((state) => state.shop.orderApplied);
   const items = useSelector(getItems);
   const categorys = useSelector(getCategorys);
-  const allSales = useSelector(getAllSales)
+  const discountItems = useSelector(getDiscountItems)
+  const mostDiscountItem = useSelector(getDiscountItems)[0]
   const dispatch = useDispatch();
 
-  const toggleToLikes = (articul) => {
-    dispatch(toggleLikes(articul));
-  };
+  // const toggleToLikes = (articul) => {
+  //   dispatch(toggleLikes(articul));
+  // };
 
-  const setPathValue = (path) => {
+  // const setPathValue = (path) => {
+  //   dispatch(setPath(path));
+  // };
+  // const toggleTheme = () => {
+  //   dispatch(switchTheme());
+  // };
+  const toggleToLikes = useCallback((articul) => {
+    dispatch(toggleLikes(articul));
+  }, [dispatch]);
+
+  const setPathValue = useCallback((path) => {
     dispatch(setPath(path));
-  };
-  const toggleTheme = () => {
+  }, [dispatch]);
+
+  const toggleTheme = useCallback(() => {
     dispatch(switchTheme());
-  };
+  }, [dispatch]);
+
+
+
   return {
     toggleToLikes,
-    allSales,
+    discountItems,
     categorys,
     items,
     isOrderApplied,
@@ -44,5 +60,6 @@ export const useShopAction = () => {
     likesCounter,
     categoryProducts,
     isDiscountApplied,
+    mostDiscountItem
   };
 };

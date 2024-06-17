@@ -28,9 +28,7 @@ const shopSlice = createSlice({
         setItems: (state, {payload}) => {
             state.items = payload;
         },
-        seCategoryProducts: (state, {payload}) => {
-            state.categoryProducts = payload;
-        },
+   
         setCategory: (state,  {payload}) => {
             state.category = payload;
         },
@@ -38,7 +36,6 @@ const shopSlice = createSlice({
             state.isLoading = payload;
         },
         setPath: (state,  {payload}) => {
-             console.log(payload, "for Path")
             state.path = ["Main Page",...payload];
         },
         switchTheme: (state) => {

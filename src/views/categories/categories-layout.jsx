@@ -12,7 +12,6 @@ export const CategoriesLayout = ({categoriesItem, text, btnText, btnDispplay, hi
   return (
     <>
       <section>
-      
         <Title  text = {text} btnText = {btnText} btnDispplay = {btnDispplay} path={"categories"}/>
       {hideBreadCrumbs || <BreadCrumbs />} 
         <div className={cn(styles.list, {[styles.gap] : gap})}>

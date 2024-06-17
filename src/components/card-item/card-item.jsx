@@ -12,10 +12,10 @@ export const CardItem = ({
   filterData,
   setFilteredPosts,
   hideBreadCrumbs,
-  allSales,
+  isAllSales,
   path
 }) => {
-console.log(path, "path all sale card")
+   console.log("RENDERR CAR ITEM")
   
   
   return (
@@ -25,7 +25,7 @@ console.log(path, "path all sale card")
       <Title text={text} btnText={btnText} btnDispplay={btnDispplay} path={path} />
 
       {filterData && (
-        <FilterBlock posts={filterData} setFilteredPosts={setFilteredPosts}  allSales = {allSales}/>
+        <FilterBlock posts={filterData} setFilteredPosts={setFilteredPosts}  isAllSales = {isAllSales}/>
       )}
       <div className={styles.list}>
         {dataItems.map(

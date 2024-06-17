@@ -5,12 +5,15 @@
   display: flex;
   flex-direction: column;
   border-radius: $radius-big;
+ 
 }
+
 .list{
-  gap: 0;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
 }
 .gap{
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .gap:not(:last-child){

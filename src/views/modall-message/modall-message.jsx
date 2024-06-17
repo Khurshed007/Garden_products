@@ -10,19 +10,12 @@ import { memo } from "react";
   setIsModallOpen,
   isModallOpen,
   onlyImg,
-  currentImage,
   productImg,
-  notFound,
   congrates,
 }) => {
 
 
-  const dispatch = useDispatch();
-  const handleCloseModal = () => {
-    setIsModallOpen(false);
-  };
 
-  console.log(notFound, "Not Found, Alo");
 
   const renderModalContent = () => {
     if (onlyImg) {

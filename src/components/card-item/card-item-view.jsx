@@ -54,10 +54,10 @@ let isDiscont = discont !== null;
       <Link to={`product/${id}`}>
       <div className={styles.prices}>
         {isDiscont ? (
-          <><div className={styles.oldPrice}>${discont} </div>
-          <div className={styles.newPrice}>${price}</div>
+          <><div className={styles.old_price}>${discont} </div>
+          <div className={styles.new_price}>${price}</div>
           </>
-        ) :  (<div className={styles.oldPrice}>${price} </div>)}
+        ) :  (<div className={styles.old_price}>${price} </div>)}
       </div>
       </Link>
     </div>

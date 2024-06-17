@@ -1,10 +1,9 @@
-import React from "react";
 import { RootRoutes } from "./routes";
-import BodyClassManager from "./components/body-class-toggle";
-import { useSelector } from "react-redux";
-
+import BodyClassManager from "./class-manager/body-class-toggle"
+import { useShopAction } from "./hooks/useShopAction";
 export const App = () => {
-  const theme = useSelector(state =>  state.shop.theme)
+
+  const{theme, items} = useShopAction()
 
 
   return (

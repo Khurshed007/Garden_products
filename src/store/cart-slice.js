@@ -43,7 +43,6 @@ export const {
   addToCart,
   deleteFromCart,
   deleteAllCart,
-  setCartId,
   setProductCart,
   toggleCartItem,
   resetGoodsData

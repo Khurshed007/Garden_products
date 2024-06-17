@@ -1,17 +1,13 @@
 import styles from "./index.module.scss";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { BASE_URL } from "../../../constants";
 import { getDiscountItems } from "../../../store/selectors";
 import { getDiscountPercent } from "../../../utils/getDiscountPercent";
-import { useDispatch, useSelector } from "react-redux";
 import { useCartAction } from "../../../hooks/useCartAction";
 import { XMark } from "../../../assets/icons";
 import { MemoCardItemView } from "../../../components/card-item/card-item-view";
+import cn from "classnames";
+import { useSelector } from "react-redux";
 export const ModallMostDiscounted = ({
   setIsModallOpen,
-  isModallOpen,
-  productImg,
 }) => {
   const dataItems = useSelector((state) => state.shop.items);
   let mostDiscountedItem = useSelector(getDiscountItems)[0];
@@ -24,9 +20,9 @@ export const ModallMostDiscounted = ({
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <button className={styles.modalClose} onClick={handleCloseModal}>
-          <XMark className={styles.mark_x} />
-        </button>
+
+          <XMark className={cn(styles.mark_x,styles.modalClose ) }  resetCart={handleCloseModal}/>
+        {/* </button> */}
 
         <div className={styles.title_details}>
           <h2>

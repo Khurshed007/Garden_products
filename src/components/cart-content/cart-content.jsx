@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, {useEffect, useState, useMemo} from "react";
 import styles from "./index.module.scss"; // Подключение модуля стилей
 import { MemoCartView } from "./cart-view";
 
@@ -11,11 +11,10 @@ import { ModallNotFound } from "../../views/modall-message/modall-not-found";
 import { Modallordered } from "../../views/modall-message/modal-order/modall_ordered";
 import { useShopAction } from "../../hooks/useShopAction";
 import { getFivePercentDiscount } from "../../utils/getFivePercentDiscount";
-import { FormInputs } from "../form-inputs/form-inputs";
 import { DiscountInput } from "../../views/discount-form";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { sendSaleData,sendOrderData } from "../../store/async-action";
+import {sendOrderData } from "../../store/async-action";
 const CartContent = () => {
   const onFormSubmit = (formData) => {
     dispatch(sendOrderData(formData));
@@ -29,45 +28,38 @@ const CartContent = () => {
     control,
   } = useForm();
 
-
-
   const {
     handleAddToCart,
     handleDeleteFromCart,
     goodsData,
-    goodsCounter,
-    cartId,
     getCartId,
     DeleteCart,
   } = useCartAction();
-  // Calculate total sum whenever goodsData or DATA_ALL_PRODUCTS changes
-  const [totalSum, setTotalSum] = useState(0);
+
   const DATA_ALL_PRODUCTS = useSelector(getAllItems);
   const [isModallOpen, setIsModallOpen] = useState(false);
   const cartCounter = useSelector(getCartCounter);
-  const {isDiscountApplied} = useShopAction();
-
-  const handleOpenModal = ()=> {
-    setIsModallOpen(true)
-  }
-  const goodsDataKeys =
+  const {isDiscountApplied,items} = useShopAction();
+  
+  const goodsDataKeys = useMemo(() => 
     Object.keys(goodsData)
       .map((item) => Number(item))
-      .filter((item) => typeof item === "number") 
-  useEffect(() => {
-    let sum = 0;
-    goodsDataKeys.forEach((key) => {
-      const product = DATA_ALL_PRODUCTS[key - 1]; // Assuming cartId is 1-based index
-      if (product) {
-        const price = product.discont_price
-          ? product.discont_price
-          : product.price;
-        const quantity = goodsData[key];
-        sum += price * quantity;
-      }
-    });
-    setTotalSum(sum);
-  }, [goodsData, DATA_ALL_PRODUCTS]);
+      .filter((item) => typeof item === "number"), 
+    [goodsData]
+  );
+      
+      const totalSum = useMemo(() => {
+        let sum = 0;
+        goodsDataKeys.forEach((key) => {
+          const product = DATA_ALL_PRODUCTS[key - 1]; // Суммирую из всех дост. ключей всех продуктов
+          if (product) {
+            const price = product.discont_price ? product.discont_price : product.price;
+            const quantity = goodsData[key];
+            sum += price * quantity;
+          }
+        });
+        return sum;
+      }, [goodsData, DATA_ALL_PRODUCTS]);
   const totalItem = Object.keys(goodsData).length;
 
 
@@ -96,6 +88,7 @@ const CartContent = () => {
                 getCartId={getCartId}
                 id={articul}
                 deleteCart={DeleteCart}
+                items = {items}
               />
             ))}
           </div>

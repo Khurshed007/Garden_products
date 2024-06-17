@@ -163,7 +163,7 @@ export const HeartIcon = ({ className, id, toggleToLikes }) => {
           dataarticul={id}
           strokeLinecap="round"
           strokeLinejoin="round"
-          // {console.log(1)}
+        
         />
       </g>
       <defs>

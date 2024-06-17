@@ -34,7 +34,7 @@ export const DiscountForm = () => {
               onSubmit={handleSubmit(onFormSubmit)}
               className={styles.form__form}
             >
-              <DiscountInput register={register} errors={errors} control={control} text={"Get a discount"} />
+              <DiscountInput register={register} errors={errors} control={control} text={"Get a discount"} lightColor = {true} />
             </form>
           </div>
         </div>

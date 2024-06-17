@@ -12,7 +12,7 @@ import { useShopAction } from "../../hooks/useShopAction";
 import { useDispatch } from "react-redux";
 export const Main = () => {
   const dispatch = useDispatch()
-  const {items} = useShopAction()
+  const { discountItems,items} = useShopAction()
   useEffect(() => {
    if(!items.length || !items){
       dispatch(requestAllProductItem())  
@@ -26,7 +26,7 @@ export const Main = () => {
       <Categories categoriesItem = {4} btnText = {"All Categories"} btnDispplay = {true} hideBreadCrumbs = {true} gap={true}/>
       <section>
         <CardItem
-          dataItems={items}
+          dataItems={ discountItems}
           text={"Sales"}
           btnText={"All Sales"}
           btnDispplay={true}
