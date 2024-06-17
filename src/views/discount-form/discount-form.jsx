@@ -3,16 +3,16 @@ import styles from "./index.module.scss";
 import image from "../../images/form.png";
 import { DiscountInput } from ".";
 import { sendSaleData } from "../../store/async-action";
-import { useForm} from "react-hook-form";
-import { useDispatch} from "react-redux";
-
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 export const DiscountForm = () => {
+  const isDiscountApplied = useSelector((state) => state.shop.discountApplied);
   const onFormSubmit = (formData) => {
     dispatch(sendSaleData(formData));
-   };
-   const dispatch = useDispatch();
-   const {
+  };
+  const dispatch = useDispatch();
+  const {
     register,
     handleSubmit,
     formState: { errors },
@@ -34,7 +34,20 @@ export const DiscountForm = () => {
               onSubmit={handleSubmit(onFormSubmit)}
               className={styles.form__form}
             >
-              <DiscountInput register={register} errors={errors} control={control} text={"Get a discount"} lightColor = {true} />
+              <DiscountInput
+                register={register}
+                errors={errors}
+                control={control}
+                text={"Get a discount"}
+                lightColor={true}
+              />
+                    <button
+          disabled={isDiscountApplied}
+          type="submit"
+          className={styles.form__button}
+        >
+          {isDiscountApplied ? "Request applied" : 'Get a discount'}
+        </button>
             </form>
           </div>
         </div>

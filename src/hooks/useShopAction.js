@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
-
 import { setPath, switchTheme, toggleLikes } from "../store/shop-slice";
 import { getLikesCounter, getItems, getCategorys,getAllSales,getDiscountItems } from "../store/selectors";
 

@@ -46,7 +46,7 @@ const shopSlice = createSlice({
             state.likesData[payload] = !state.likesData[payload]; // В true или false потому что больше 1 раза не нужно будет мутировать
           },
     },
-    extraReducers: (builder) => {
+    extraReducers: (builder) => {  
         builder.addCase(requestAllProductItem.pending, (state) => {
             state.isLoading = true;
         })

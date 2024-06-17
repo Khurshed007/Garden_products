@@ -24,6 +24,7 @@ export const Main = () => {
       <Head />
       
       <Categories categoriesItem = {4} btnText = {"All Categories"} btnDispplay = {true} hideBreadCrumbs = {true} gap={true}/>
+      {<DiscountForm/>}
       <section>
         <CardItem
           dataItems={ discountItems}
@@ -34,7 +35,7 @@ export const Main = () => {
           path={"all-sales"}
         />
       </section>
-      {<DiscountForm/>}
+      
     </>
   );
 };

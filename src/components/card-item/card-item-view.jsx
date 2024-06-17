@@ -2,7 +2,7 @@ import React from "react";
 import { HeartIcon, CartIcon } from "../../assets/icons";
 import styles from "./index.module.scss";
 import { BASE_URL } from "../../constants";
-import { Link, useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 import { useCartAction } from "../../hooks/useCartAction";

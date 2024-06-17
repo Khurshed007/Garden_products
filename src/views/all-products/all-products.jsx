@@ -15,6 +15,8 @@ export const AllProducts = () => {
    }
   }, [dispatch])
 
+
+
   let [filteredPosts, setFilteredPosts] = useState([items]);
 
   return (

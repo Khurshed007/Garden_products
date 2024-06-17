@@ -11,20 +11,8 @@ import { TEXT_REGULAR } from "../../constants";
 import { NAME_REGEX } from "../../constants";
 import { PHONE_REGULAR } from "../../constants";
 import cn from "classnames"
-export const DiscountInput = ({fullWidth, text, order, register, errors,control,lightColor}) => {
-    const dispatch = useDispatch();
-    const isDiscountApplied = useSelector((state) => state.shop.discountApplied);
-  
-    // const {
-    //   register,
-    //   handleSubmit,
-    //   formState: { errors },
-    //   control,
-    // } = useForm();
-  
-    const onFormSubmit = (formData) => {
-     dispatch(sendSaleData(formData));
-    };
+export const DiscountInput = ({fullWidth, text, order, register, errors,control,lightColor,disable}) => {
+
   
     return (
       
@@ -84,15 +72,15 @@ export const DiscountInput = ({fullWidth, text, order, register, errors,control,
           }}
         />
 
-        <button
+        {/* <button
           disabled={isDiscountApplied}
           type="submit"
           className={styles.form__button}
         >
           {isDiscountApplied ? "Request applied" : text}
-        </button>
+        </button> */}
        </>
-      // </form>
+    
 
     );
   };

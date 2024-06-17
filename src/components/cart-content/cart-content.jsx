@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useMemo} from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import styles from "./index.module.scss"; // Подключение модуля стилей
 import { MemoCartView } from "./cart-view";
 
@@ -14,14 +14,14 @@ import { getFivePercentDiscount } from "../../utils/getFivePercentDiscount";
 import { DiscountInput } from "../../views/discount-form";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import {sendOrderData } from "../../store/async-action";
+import { sendOrderData } from "../../store/async-action";
 const CartContent = () => {
   const onFormSubmit = (formData) => {
     dispatch(sendOrderData(formData));
-    setIsModallOpen(true)
-   };
-   const dispatch = useDispatch();
-   const {
+    setIsModallOpen(true);
+  };
+  const dispatch = useDispatch();
+  const {
     register,
     handleSubmit,
     formState: { errors },
@@ -39,30 +39,31 @@ const CartContent = () => {
   const DATA_ALL_PRODUCTS = useSelector(getAllItems);
   const [isModallOpen, setIsModallOpen] = useState(false);
   const cartCounter = useSelector(getCartCounter);
-  const {isDiscountApplied,items} = useShopAction();
-  
-  const goodsDataKeys = useMemo(() => 
-    Object.keys(goodsData)
-      .map((item) => Number(item))
-      .filter((item) => typeof item === "number"), 
+  const { isDiscountApplied, items } = useShopAction();
+
+  const goodsDataKeys = useMemo(
+    () =>
+      Object.keys(goodsData)
+        .map((item) => Number(item))
+        .filter((item) => typeof item === "number"),
     [goodsData]
   );
-      
-      const totalSum = useMemo(() => {
-        let sum = 0;
-        goodsDataKeys.forEach((key) => {
-          const product = DATA_ALL_PRODUCTS[key - 1]; // Суммирую из всех дост. ключей всех продуктов
-          if (product) {
-            const price = product.discont_price ? product.discont_price : product.price;
-            const quantity = goodsData[key];
-            sum += price * quantity;
-          }
-        });
-        return sum;
-      }, [goodsData, DATA_ALL_PRODUCTS]);
+
+  const totalSum = useMemo(() => {
+    let sum = 0;
+    goodsDataKeys.forEach((key) => {
+      const product = DATA_ALL_PRODUCTS[key - 1]; // Суммирую из всех дост. ключей всех продуктов
+      if (product) {
+        const price = product.discont_price
+          ? product.discont_price
+          : product.price;
+        const quantity = goodsData[key];
+        sum += price * quantity;
+      }
+    });
+    return sum;
+  }, [goodsData, DATA_ALL_PRODUCTS]);
   const totalItem = Object.keys(goodsData).length;
-
-
 
   const renderContent = () => {
     return !cartCounter ? (
@@ -88,7 +89,7 @@ const CartContent = () => {
                 getCartId={getCartId}
                 id={articul}
                 deleteCart={deleteCart}
-                items = {items}
+                items={items}
               />
             ))}
           </div>
@@ -101,16 +102,33 @@ const CartContent = () => {
               <div className={styles.total_price_details}>
                 <span className={styles.litle_font}>Total</span>
                 <span className={styles.total_price}>
-                  {isDiscountApplied ?  `$${getFivePercentDiscount(totalSum)}` : `$${totalSum.toFixed(2)}`}  
+                  {isDiscountApplied
+                    ? `$${getFivePercentDiscount(totalSum)}`
+                    : `$${totalSum.toFixed(2)}`}
                 </span>
               </div>
             </div>
-            <form className={styles.order_form} onSubmit={handleSubmit(onFormSubmit)}> 
-          <DiscountInput register={register} errors={errors} control={control} text={"Order"} />
-          </form>
+            <form
+              className={styles.order_form}
+              onSubmit={handleSubmit(onFormSubmit)}
+            >
+              <DiscountInput
+                register={register}
+                errors={errors}
+                control={control}
+                text={"Order"}
+                disable={false}
+              />
+              <button type="submit" className={styles.form__button}>
+                Order
+              </button>
+            </form>
           </div>
         </div>
-        <Modallordered isModallOpen={isModallOpen} setIsModallOpen={setIsModallOpen}/>
+        <Modallordered
+          isModallOpen={isModallOpen}
+          setIsModallOpen={setIsModallOpen}
+        />
       </>
     );
   };
