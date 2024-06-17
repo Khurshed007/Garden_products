@@ -42,7 +42,6 @@
   }
 
   .btn {
-
     border-radius: 1px;
     padding: 8px 16px 8px 16px;
     z-index: 1;
@@ -50,15 +49,12 @@
     outline: none;
     border: 1px solid $grey-cl;
     background-color: var(--primary-bg);
-    
     border-radius: $radius-small;
-
     &:hover{
       background-color: var(--primary-cl);
      color: var(--primary-bg);
     }
   }
-
 }
 
 @media screen and (max-width: 768px) {

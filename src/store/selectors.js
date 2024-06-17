@@ -1,6 +1,6 @@
 
 
-import { createSelector } from 'reselect'; // Месоизация для Selectors
+import { createSelector } from 'reselect'; // Мемоизация для Selectors
 import { getDiscountPercent } from '../utils/getDiscountPercent';
 
 // Пример состояния
