@@ -1,97 +1,55 @@
 import React, { useState, useEffect } from "react";
-import { getDiscountPercent } from "../../utils/getDiscountPercent";
+import {getSortedPosts} from "../../utils/getSortedPosts"
 import { useSearchParams } from "react-router-dom";
 import { FilterForm } from "./filter-form";
 
-const FilterBlock = ({ posts, setFilteredPosts, isAllSales}) => {
+const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const postQuery = searchParams.get("post");
-  const fromQuery = searchParams.get("from");
-  const toQuery = searchParams.get("to");
-  const discountQuery = searchParams.get("discount");
+  // fromQuery, toQuery, discountQuery: Эти переменные получают соответствующие параметры из URL.
+  const fromQuery = searchParams.get("from"); // Передастся значение from из URL
+  const toQuery = searchParams.get("to"); // Передастся значение из to URL
+  const discountQuery = searchParams.get("discount"); // Передастся значение discount ИЗ URL
 
-  const [sortOption, setSortOption] = useState("default");
-  const [showDiscountedItems, setShowDiscountedItems] = useState(
+   // Стейты которые в зависимости от наших searchParams дают значение
+  const [sortOption, setSortOption] = useState("default"); 
+  const [showDiscountedItems, setShowDiscountedItems] = useState( // true || false
     discountQuery === "1"
   );
-  const [fromValue, setFromValue] = useState(fromQuery || "");
+  const [fromValue, setFromValue] = useState(fromQuery || ""); // Значение fromQuery и || ""
   const [toValue, setToValue] = useState(toQuery || "");
 
-  useEffect(() => {
-    // Синхронизация состояния с параметрами URL при монтировании компонента
-    setSortOption(searchParams.get("sort") || "default");
-    setShowDiscountedItems(discountQuery === "1");
-    setFromValue(fromQuery || "");
-    setToValue(toQuery || "");
-  }, [searchParams, discountQuery, fromQuery, toQuery]);
 
   useEffect(() => {
     let filteredPosts = posts.filter((post) => {
       let condition = true;
+      const price =
+        post.discont_price !== null ? post.discont_price : post.price; // Если скидка есть, то берем в занчение price скидку и фиьлтруем по ней
 
-      if (postQuery && String(post.price) !== postQuery) {
+      if (fromValue && price < fromValue) {
         condition = false;
       }
 
-      if (post.discont_price !== null) {
-        if (fromValue && post.discont_price < fromValue) {
-          condition = false;
-        }
-        if (toValue && post.discont_price > toValue) {
-          condition = false;
-        }
-        if (post.discont_percent === null) {
-          condition = false;
-        }
-      } else {
-        if (fromValue && post.price < fromValue) {
-          condition = false;
-        }
-        if (toValue && post.price > toValue) {
-          condition = false;
-        }
+      if (toValue && price > toValue) {
+        // без toValue изначально урезается весь массив
+        condition = false;
       }
 
       return condition;
     });
 
+    // Фильтрация в зависимости от состояния чекбокс (если включен)
+    // showDiscountedItems если чекбокс влючен
     if (showDiscountedItems) {
-      filteredPosts = filteredPosts
-        .sort((elem1, elem2) => {
-          const discount1 = getDiscountPercent(
-            elem1.price,
-            elem1.discont_price
-          );
-          const discount2 = getDiscountPercent(
-            elem2.price,
-            elem2.discont_price
-          );
-          return discount2 - discount1;
-        })
-        .filter(({ discont_price }) => discont_price !== null);
-      if (sortOption === "price-high-low") {
-        filteredPosts.sort((a, b) => b.discont_price - a.discont_price);
-      } else if (sortOption === "price-low-high") {
-        filteredPosts.sort((a, b) => a.discont_price - b.discont_price);
-      }
-    } else {
-      if (sortOption === "price-low-high") {
-        filteredPosts.sort((a, b) => a.price - b.price);
-      } else if (sortOption === "price-high-low") {
-        filteredPosts.sort((a, b) => b.price - a.price);
-      } else if (sortOption === "newest") {
-        filteredPosts.sort((a, b) => {
-          return a.title.localeCompare(b.title); // По Алфавиту
-        });
-      } else {
-        filteredPosts.sort((a, b) => a.id - b.id);
-      }
+      filteredPosts = filteredPosts.filter(
+        ({ discont_price }) => discont_price !== null
+      );
+      getSortedPosts(filteredPosts, sortOption, true);
     }
+    getSortedPosts(filteredPosts, sortOption);
 
     setFilteredPosts(filteredPosts);
   }, [
     posts,
-    postQuery,
     fromValue,
     toValue,
     sortOption,
@@ -99,35 +57,39 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales}) => {
     setFilteredPosts,
   ]);
 
+  //handleSortChange утанавливает для sortoption значение из select
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
     updateSearchParams({ sort: e.target.value });
   };
-
+  //handleSortChange утанавливает для showDiscountedItems сост. чекбокса(true || false)
   const handleCheckboxClick = () => {
     const newDiscountState = !showDiscountedItems;
     setShowDiscountedItems(newDiscountState);
     updateSearchParams({ discount: newDiscountState ? 1 : 0 });
   };
-
+  //handleSortChange утанавливает для setFromValue значение из Input from
   const handleFromChange = (e) => {
     setFromValue(e.target.value);
     updateSearchParams({ from: e.target.value });
   };
-
+  //handleToChange утанавливает для toValue значение из Input to
   const handleToChange = (e) => {
     setToValue(e.target.value);
     updateSearchParams({ to: e.target.value });
   };
 
+  // updateSearchParams берет в объ значения из inputoв отдает searchParams
+  // Устанавливает для url значения
   const updateSearchParams = (updatedParams) => {
     const newParams = {
       ...Object.fromEntries(searchParams.entries()),
       ...updatedParams,
     };
+
+    console.log(newParams);
     setSearchParams(newParams);
   };
-
   return (
     <FilterForm
       isAllSales={isAllSales}
