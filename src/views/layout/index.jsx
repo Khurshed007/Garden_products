@@ -24,7 +24,6 @@ export const Layout = () => {
   return (
     <main>
       <Navigation />
-      {/* <Outlet/> */}
       {isLoading ? <Loading /> : <Outlet />}
       <Footer />
     </main>
