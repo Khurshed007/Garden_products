@@ -25,7 +25,8 @@ export const Layout = () => {
     <main>
       <Navigation />
       {/* <Outlet/> */}
-      {isLoading ? <Loading /> : <Outlet />}
+      <Loading/>
+      {/* {isLoading ? <Loading /> : <Outlet />} */}
       <Footer />
     </main>
   );
