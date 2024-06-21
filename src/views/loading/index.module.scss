@@ -3,7 +3,7 @@
 
 
 .container {
-	width: 800PX;
+	width: 800px;
 	height: 400px;
 	padding-top: 100px;
 	margin: 0 auto;
@@ -15,13 +15,12 @@
 .ball {
 	width: 80px;
 	height: 80px;
-	margin: 180px auto;
+	margin: 90px auto;
 	border-radius: 50px;
     background: var(--primary-cl);
 }
 
 .ball:nth-child(1) {
-	// background: #ffffff;
 	-webkit-animation: right 1s infinite ease-in-out;
 	-moz-animation: right 1s infinite ease-in-out;
 	animation: right 1s infinite ease-in-out;
@@ -138,5 +137,51 @@
 	}
 	100% {
 		transform: translateY(15px);
+	}
+}
+
+
+@media screen and (max-width:800px) {
+	.ball{
+		width: 60px;
+		height: 60px;
+		
+	}
+	.container{
+		width: 80%;
+	}
+}
+
+
+@media screen and (max-width:680px) {
+	.ball{
+		
+		&:nth-child(7) {
+			display: none;
+		}
+		
+	}
+	.container{
+		width: 95%;
+	}
+}
+
+
+@media screen and (max-width:480px) {
+	.ball{
+		width: 55px;
+		height: 55px;
+
+		&:nth-child(5) {
+			display: none;
+		}
+		
+		&:nth-child(6) {
+			display: none;
+		}
+		
+	}
+	.container{
+		width: 90%;
 	}
 }
