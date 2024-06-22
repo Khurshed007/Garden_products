@@ -28,9 +28,11 @@ export const requestAllProductItem = createAsyncThunk('shop/requestAllProductIte
       
  });
 
- export const requestCurrentCategoryProducts = createAsyncThunk('shop/requestCurrentCategoryProducts', async (categoryId, thunkApi) => {
+ export const requestCurrentCategoryProducts = createAsyncThunk('shop/requestCurrentCategoryProducts', async (categoryId = 1, thunkApi) => {
      try {
+
          const rawData = await  fetch(`${BASE_URL}/categories/${categoryId}`);
+         console.log(rawData, "asdasdasdasv,raw")
          const {data} = await rawData.json(); // так как на вернется массив из 2х объектов category и data, то мы извлкаем из него только data
          return thunkApi.fulfillWithValue(data);
      } catch (err) {

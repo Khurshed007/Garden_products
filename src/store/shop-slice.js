@@ -15,7 +15,7 @@ const initialState = {
     isLoading: false,
     path: [],
     theme : "light",
-    error: null,
+    isError: null,
     likesData: {},
     discountApplied : false,
     orderApplied:false
@@ -52,24 +52,35 @@ const shopSlice = createSlice({
         })
         builder.addCase(requestAllProductItem.fulfilled, (state, {payload}) => {
             state.isLoading = false;
-
             state.items = payload
         })
+        builder.addCase(requestAllProductItem.rejected, (state, {payload}) => {
+            state.isError = true;
+            state.isLoading = false;
+        })
+        
         builder.addCase(requestCategoryItem.fulfilled, (state, {payload}) => {
             state.isLoading = false;
             state.category = payload;
             
         })
+        
         builder.addCase(requestCategoryItem.pending, (state) => {
             state.isLoading = true;
             
         })
 
+        
         builder.addCase(requestCurrentCategoryProducts.fulfilled, (state, {payload}) => {
             state.isLoading = false;
             state.categoryProducts = payload;
             
         })
+        builder.addCase(requestCurrentCategoryProducts.rejected, (state, {payload}) => {
+              alert(payload, "pat err")
+              state.categoryProducts = payload;
+        })
+        
         builder.addCase(sendSaleData.fulfilled, (state, action) => {
             if (action.payload.status === 'OK') {
                 state.discountApplied = true;
