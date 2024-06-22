@@ -7,18 +7,18 @@ const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, { payload }) => {
-      const { articul } = payload;
+      const articul  = payload;
       !state.goodsData[articul] // Доп. учловие на случай если articulа нет
         ? (state.goodsData[articul] = 1)
         : (state.goodsData[articul] += 1);
     },
     deleteFromCart: (state, action) => {
-      const { articul } = action.payload;
+      const  articul  = action.payload;
       state.goodsData[articul]--;
       if (state.goodsData[articul] === 0) return;
     },
     deleteAllCart: (state, action) => {
-      const { articul } = action.payload;
+      const  articul  = action.payload;
       state.goodsData[articul] = 0;
     },
     resetGoodsData : (state, _) => {
@@ -32,8 +32,8 @@ const cartSlice = createSlice({
     },
 
     toggleCartItem: (state, { payload }) => {
-      const { articul, select } = payload;
-      state.goodsData[select] = Number(!state.goodsData[select]); // В Number потому что в дальнейшем нужно будет увеличить счетчик
+      const articul = payload;
+      state.goodsData[articul] = Number(!state.goodsData[articul]); // В Number потому что в дальнейшем нужно будет увеличить счетчик
     },
   },
   

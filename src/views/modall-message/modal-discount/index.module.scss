@@ -1,6 +1,5 @@
 
 @import "../../../vars.scss";
-@import "../../404/index.module.scss";
   
 .container {
   display: flex;
@@ -64,10 +63,15 @@ height: 22px;
   padding: 10px 20px;
   font-size: 16px;
   background-color: var(--primary-color);
-  color: #fff;
+  color: $dark-cl;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
+  &:hover{
+    color: $light-cl;
+    background-color: $dark-cl;
+  }
 }
 
 .modal {
@@ -131,7 +135,7 @@ height: 22px;
  }
 }
 
-.modalClose {
+.modal_close {
 
   background: none;
   border: none;
@@ -160,7 +164,7 @@ height: 22px;
   width: 100%;
 }
 
-.orderButton {
+.order_button {
   padding: 16px 32px;
   width: 100%;
   margin-top: 16px;
@@ -170,7 +174,20 @@ height: 22px;
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
+  &:hover{
+    color: $light-cl;
+    background-color: $dark-cl;
+  }
+  
+  &.active{
+    background-color: $dark-cl;
+    color: $light-cl;
 
+    &:hover{
+      color: $dark-cl;
+      background-color: $light-cl;
+    }
+  }
   @media screen and (max-width:480px) {
     margin-top: 12px;
   }
