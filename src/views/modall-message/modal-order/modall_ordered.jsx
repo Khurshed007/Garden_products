@@ -26,7 +26,7 @@ export const Modallordered = ({
                
                 </div>
                 <button
-                    className={styles.modalClose}
+                    className={styles.modal_close}
                     onClick={handleCloseModal}
                   >
                     <XMark className={styles.mark_x}  resetCart={resetCart}/>
