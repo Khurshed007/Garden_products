@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Categories } from "./views/categories";
 import { Main } from "./views/main";
 import { Layout } from "./views/layout";
-import { NotFound } from "./views/not-found";
+import { NotFound } from "./views/404/not found";
 import CartContent from "./components/cart-content/cart-content";
 import { Product } from "./views/product/product";
 import { AllProductsRoute } from "./views/all-products/route";

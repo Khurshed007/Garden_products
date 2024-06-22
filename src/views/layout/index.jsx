@@ -8,14 +8,14 @@ import { useLocation } from "react-router-dom";
 import { setPath } from "../../store/shop-slice";
 import { getPath } from "../../utils/getPath";
 import { Loading } from "../loading/loading";
-
+import { useShopAction } from "../../hooks/useShopAction";
+import { ErrorMessage } from "../404/error";
 export const Layout = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { pathname } = location;
-  const category = useSelector((state) => state.shop.category);
-  const items = useSelector((state) => state.shop.items);
-  const isLoading = useSelector((state) => state.shop.isLoading);
+  const  {category,items,isLoading,isError} = useSelector((state) => state.shop);
+
   useEffect(() => {
     dispatch(setPath(getPath(pathname, items, category)));
   }, [pathname, category, items, dispatch]);
@@ -25,8 +25,8 @@ export const Layout = () => {
     <main>
       <Navigation />
       {/* <Outlet/> */}
-      <Loading/>
-      {/* {isLoading ? <Loading /> : <Outlet />} */}
+      {/* <Loading/> */}
+      {isError ? <ErrorMessage /> : (isLoading ? <Loading /> : <Outlet />)} 
       <Footer />
     </main>
   );
