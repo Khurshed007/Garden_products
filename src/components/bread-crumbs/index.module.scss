@@ -9,6 +9,7 @@
     margin-top: 32px;
   }
 
+
   .breadcrumb_item {
     background-color: var(--primary-bg);
     border: 1px solid $grey-second-cl;
@@ -48,6 +49,16 @@
   @media screen and (max-width: 767px) {
       display: none;
   }
+}
+
+
+.active{
+  margin: 0;
+
+  @media screen and (max-width: 767px) {
+    // display: none;
+    margin-bottom: 20px;
+}
 }
 
 // .breadcrumbs {
