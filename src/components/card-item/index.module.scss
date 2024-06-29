@@ -133,9 +133,7 @@ section {
 
 .wrapper {
   width: 100%;
-  border-radius: 12px;
   margin-top: 40px;
-  background-color: var(--card-bg);
   &:not(:last-child) {
     margin-right: 20px;
   }
@@ -145,6 +143,30 @@ section {
   @media screen and (max-width: 480px) {
     margin-top: 24px;
   }
+  &.wrapper__no_margin{
+   
+  
+
+  .info{
+    background:$light-cl;
+    color: $dark-cl;
+    border: 1px solid $grey-cl;
+  }
+
+  .prices {
+    color: $dark-cl;
+  }
+  .new_price {
+    font-size: 20px;
+    line-height: 26px;
+    margin-left: 10px;
+    color: $grey-second-cl;
+    text-decoration: line-through;
+    font-weight: 500;
+    
+  }
+  
+}
 }
 
 .header {

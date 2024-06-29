@@ -1,10 +1,14 @@
 import { RootRoutes } from "./routes";
 import BodyClassManager from "./class-manager/body-class-toggle"
-import { useShopAction } from "./hooks/useShopAction";
-export const App = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { withErrorBoundary } from "react-error-boundary";
+import { NotFound } from "./views/404/not found";
+ const App = () => {
+  const{theme, categoryProducts} = useSelector((state) => state.shop)
 
-  const{theme, items} = useShopAction()
-
+   if(!categoryProducts && !categoryProducts.length){
+    throw new Error("Error")
+   }
 
   return (
     <>
@@ -13,3 +17,6 @@ export const App = () => {
     </>
   );
 };
+export default withErrorBoundary(App, {
+  fallback: <NotFound reload = {true}/>
+})

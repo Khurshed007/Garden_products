@@ -1,5 +1,5 @@
 @import "../../vars.scss";
-// @import "../cart-content/index.module.scss";
+
 
 input {
   padding: 16px 32px;
@@ -45,12 +45,16 @@ input {
 button {
   padding: 16px 20px;
   background-color: #fff;
-  color: #1e8e3e;
   border: none;
   border-radius: $radius-small;
   font-size: 20px;
   line-height: 26px;
   cursor: pointer;
+
+  &:hover{
+    color: $light-cl;
+    background-color: $dark-cl;
+  }
 }
 
 .error_content{

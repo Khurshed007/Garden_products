@@ -10,6 +10,7 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
   const toQuery = searchParams.get("to"); // Передастся значение из to URL
   const discountQuery = searchParams.get("discount"); // Передастся значение discount ИЗ URL
   const sort = searchParams.get("sort");
+  const sort = searchParams.get("sort");
    // Стейты которые в зависимости от наших searchParams дают значение
   const [sortOption, setSortOption] = useState(sort || "default"); // Так как при обновлении стейты очищаются, а SeacrParams нет.  изн. положение нужно ставить
   const [showDiscountedItems, setShowDiscountedItems] = useState( // true || false

@@ -1,6 +1,7 @@
 @import "../../vars.scss";
 
 .container {
+<<<<<<< HEAD
   width: 800px;
   height: 400px;
   padding-top: 100px;
@@ -23,6 +24,29 @@
   -webkit-animation: right 1s infinite ease-in-out;
   -moz-animation: right 1s infinite ease-in-out;
   animation: right 1s infinite ease-in-out;
+=======
+	width: 800px;
+	height: 400px;
+	padding-top: 100px;
+	margin: 0 auto;
+    display: flex;
+  justify-content: space-between;
+
+}
+
+.ball {
+	width: 80px;
+	height: 80px;
+	margin: 90px auto;
+	border-radius: 50px;
+    background: var(--primary-cl);
+}
+
+.ball:nth-child(1) {
+	-webkit-animation: right 1s infinite ease-in-out;
+	-moz-animation: right 1s infinite ease-in-out;
+	animation: right 1s infinite ease-in-out;
+>>>>>>> c85532fa85a75be3c35584c0466860400eb5c1a6
 }
 
 .ball:nth-child(2) {
@@ -159,6 +183,95 @@
 	  &:nth-child(7) {
 		display: none;
 	  }
+<<<<<<< HEAD
+=======
+	}
+	.container{
+		width: 80%;
+	}
+  }
+
+
+  @media screen and (max-width: 500px) {
+    .ball{
+	width: 40px;
+    height: 40px;
+
+	&:nth-child(6) {
+		display: none;
+	  }
+	  
+	  &:nth-child(7) {
+		display: none;
+	  }
+	}
+	.container{
+		width: 80%;
+	}
+  }
+
+  @media screen and (max-width: 360px) {
+    .ball{
+	&:nth-child(5) {
+		display: none;
+	  }
+	&:nth-child(6) {
+		display: none;
+	  }
+	  
+	  &:nth-child(7) {
+		display: none;
+	  }
+	}
+	.container{
+		width: 60%;
+	}
+}
+
+
+@media screen and (max-width:800px) {
+	.ball{
+		width: 60px;
+		height: 60px;
+		
+	}
+	.container{
+		width: 80%;
+	}
+}
+
+
+@media screen and (max-width:680px) {
+	.ball{
+		
+		&:nth-child(7) {
+			display: none;
+		}
+		
+	}
+	.container{
+		width: 95%;
+	}
+}
+
+
+@media screen and (max-width:480px) {
+	.ball{
+		width: 55px;
+		height: 55px;
+
+		&:nth-child(5) {
+			display: none;
+		}
+		
+		&:nth-child(6) {
+			display: none;
+		}
+		
+	}
+	.container{
+		width: 90%;
+>>>>>>> c85532fa85a75be3c35584c0466860400eb5c1a6
 	}
 	.container{
 		width: 80%;

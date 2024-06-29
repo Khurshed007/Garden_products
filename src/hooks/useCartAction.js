@@ -28,20 +28,20 @@ let dispatch = useDispatch()
     //     dispatch(resetGoodsData());
     //   };
 
-    const handleAddToCart = useCallback((articul, price, discont) => {
-      dispatch(addToCart({ articul, price, discont }));
+    const handleAddToCart = useCallback((articul) => {
+      dispatch(addToCart(articul));
     }, [dispatch, goodsData]);
   
-    const handleDeleteFromCart = useCallback((articul, price, discont) => {
-      dispatch(deleteFromCart({ articul, price, discont }));
+    const handleDeleteFromCart = useCallback((articul) => {
+      dispatch(deleteFromCart(articul));
     }, [dispatch,goodsData]);
   
-    const deleteCart = useCallback((articul, price, discont) => {
-      dispatch(deleteAllCart({ articul, price, discont }));
+    const deleteCart = useCallback((articul) => {
+      dispatch(deleteAllCart(articul));
     }, [dispatch,goodsData]);
   
-    const handleCartState = useCallback((articul, select) => {
-      dispatch(toggleCartItem({ articul, select }));
+    const handleCartState = useCallback((articul) => {
+      dispatch(toggleCartItem( articul));
     }, [dispatch,goodsData]);
   
     const resetCart = useCallback(() => {

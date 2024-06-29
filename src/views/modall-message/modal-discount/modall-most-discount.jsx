@@ -13,7 +13,9 @@ export const ModallMostDiscounted = ({
   let mostDiscountedItem = useSelector(getDiscountItems)[0];
   const { description, id, image, price, title, discont_price } =
     mostDiscountedItem;
-  const { handleAddToCart } = useCartAction();
+     console.log(id, "id goodsData")
+  const { handleAddToCart,goodsData, handleCartState } = useCartAction();
+  
   const handleCloseModal = () => {
     setIsModallOpen(false);
   };
@@ -21,7 +23,7 @@ export const ModallMostDiscounted = ({
     <div className={styles.overlay}>
       <div className={styles.modal}>
 
-          <XMark className={cn(styles.mark_x,styles.modalClose ) }  resetCart={handleCloseModal}/>
+          <XMark className={cn(styles.mark_x,styles.modal_close ) }  resetCart={handleCloseModal}/>
         {/* </button> */}
 
         <div className={styles.title_details}>
@@ -40,10 +42,10 @@ export const ModallMostDiscounted = ({
             noMargin = {true}
           />
           <button
-            onClick={() => handleAddToCart(id)}
-            className={styles.orderButton}
+            onClick={() => handleCartState(id)}
+             className={cn(styles.order_button,  {[styles.active] : goodsData[id]})}
           >
-            Add to cart
+           {goodsData[id] ?  "Added" : "Add to cart"} 
           </button>
         </div>
       </div>
