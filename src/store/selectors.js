@@ -37,7 +37,7 @@ export const getCurrenCategoryProducts = (state) => state.shop.categoryProducts;
 
 
 export const getLikesCounter = createSelector([getLikesData], (likesData) => {
-   alert("Likes")
+  //  alert("Likes")
    return Object.values(likesData).filter((liked) => liked).length;
 })
 
