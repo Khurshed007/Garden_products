@@ -197,52 +197,8 @@
 	  }
 	}
 	.container{
-		width: 60%;
+		width: 70%;
 	}
 }
 
 
-@media screen and (max-width:800px) {
-	.ball{
-		width: 60px;
-		height: 60px;
-		
-	}
-	.container{
-		width: 80%;
-	}
-}
-
-
-@media screen and (max-width:680px) {
-	.ball{
-		
-		&:nth-child(7) {
-			display: none;
-		}
-		
-	}
-	.container{
-		width: 95%;
-	}
-}
-
-
-@media screen and (max-width:480px) {
-	.ball{
-		width: 55px;
-		height: 55px;
-
-		&:nth-child(5) {
-			display: none;
-		}
-		
-		&:nth-child(6) {
-			display: none;
-		}
-		
-	}
-	.container{
-		width: 90%;
-	}
-}
