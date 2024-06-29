@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 import { setPath, switchTheme, toggleLikes } from "../store/shop-slice";
-import { getLikesCounter, getItems, getCategorys,getAllSales,getDiscountItems } from "../store/selectors";
+import { getLikesCounter, getAllItems, getCategorys,getDiscountItems } from "../store/selectors";
 
 export const useShopAction = () => {
   const likesData = useSelector((state) => state.shop.likesData);
@@ -13,7 +13,7 @@ export const useShopAction = () => {
   const categoryProducts = useSelector((state) => state.shop.categoryProducts);
   const isDiscountApplied = useSelector((state) => state.shop.discountApplied);
   const isOrderApplied = useSelector((state) => state.shop.orderApplied);
-  const items = useSelector(getItems);
+  const items = useSelector(getAllItems);
   const categorys = useSelector(getCategorys);
   const discountItems = useSelector(getDiscountItems)
   const mostDiscountItem = useSelector(getDiscountItems)[0]

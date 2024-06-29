@@ -78,7 +78,7 @@ export const Product = () => {
         />
       </div>
       <div className={styles.wrapper}>
-        <BreadCrumbs />
+        <BreadCrumbs noMargin = {true}/>
         <div className={styles.product_card}>
           <div className={styles.left_card}>
             <div className={styles.product_image}>
