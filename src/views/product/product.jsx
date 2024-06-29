@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./index.module.scss";
-import { getAllItems } from "../../store/selectors";
 import { requestAllProductItem } from "../../store/async-action";
 import { BASE_URL } from "../../constants";
 import { useState } from "react";
@@ -22,7 +21,7 @@ export const Product = () => {
     if(!items.length || !items){
        dispatch(requestAllProductItem())  
     }
-   }, [dispatch])
+   }, [dispatch,items])
 
   const [isModallOpen, setIsModallOpen] = useState(false);
   const { toggleToLikes, likesData } = useShopAction();
