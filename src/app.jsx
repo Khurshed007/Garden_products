@@ -1,6 +1,6 @@
 import { RootRoutes } from "./routes";
 import BodyClassManager from "./class-manager/body-class-toggle"
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { withErrorBoundary } from "react-error-boundary";
 import { NotFound } from "./views/404/not found";
  const App = () => {

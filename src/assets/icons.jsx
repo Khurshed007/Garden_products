@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import React, { useContext, useMemo, useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+
+import React from "react";
+
 
 
 export const XOctagon = ({className}) => (

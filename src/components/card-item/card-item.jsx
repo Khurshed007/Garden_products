@@ -4,7 +4,6 @@ import { getDiscountPercent } from "../../utils/getDiscountPercent";
 import { Title } from "../title/title";
 import { BreadCrumbs } from "../bread-crumbs/bread-crumbs";
 import FilterBlock from "../filtered-block/filtered-block";
-import { Navigate } from "react-router-dom";
 export const CardItem = ({
   dataItems,
   text,

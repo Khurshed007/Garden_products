@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 
-import { useDispatch, useSelector } from "react-redux";
+
 import { XMark } from "../../../assets/icons";
 import { useCartAction } from "../../../hooks/useCartAction";
 

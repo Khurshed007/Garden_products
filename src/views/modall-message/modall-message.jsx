@@ -1,5 +1,4 @@
 
-import { useDispatch } from "react-redux";
 import { ModallImg } from "./modal-img/modall-img";
 import { ModallMostDiscounted } from "./modal-discount/modall-most-discount";
 import { Modallordered } from "./modal-order/modall_ordered";
