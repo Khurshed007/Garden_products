@@ -24,13 +24,10 @@ export const Layout = () => {
   return (
     <main>
       <Navigation />
-<<<<<<< HEAD
       {isLoading ? <Loading /> : <Outlet />}
-=======
       {/* <Outlet/> */}
       {/* <Loading/> */}
       {isError ? <ErrorMessage /> : (isLoading ? <Loading /> : <Outlet />)} 
->>>>>>> c85532fa85a75be3c35584c0466860400eb5c1a6
       <Footer />
     </main>
   );
