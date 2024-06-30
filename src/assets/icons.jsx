@@ -1,36 +1,34 @@
-
 import React from "react";
 
+export const XOctagon = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#FFFFFF"
+    className={className}
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2" />
+    <line x1="15" y1="9" x2="9" y2="15" />
+    <line x1="9" y1="9" x2="15" y2="15" />
+  </svg>
+);
 
-
-export const XOctagon = ({className}) => (
-
-  <svg 
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="#FFFFFF"
-  className={className}
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2" />
-  <line x1="15" y1="9" x2="9" y2="15" />
-  <line x1="9" y1="9" x2="15" y2="15" />
-</svg>
-)
-
-export const XMark = ({ className,resetCart,id }) => (
+export const XMark = ({ className, resetCart, id }) => (
   <svg
     fill="#FFFFFF"
     height="22px"
     width="22px"
     version="1.1"
     id="Capa_1"
-    onClick={() => {resetCart(id)}}
+    onClick={() => {
+      resetCart(id);
+    }}
     viewBox="0 0 460.775 460.775"
     className={className}
   >
@@ -45,23 +43,39 @@ export const XMark = ({ className,resetCart,id }) => (
   </svg>
 );
 
-export const InstagramIcon = ({className}) => (
-  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30" className={className}>
-  <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"></path>
-  
-
-</svg>
+export const InstagramIcon = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    x="0px"
+    y="0px"
+    width="100"
+    height="100"
+    viewBox="0 0 30 30"
+    className={className}
+  >
+    <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"></path>
+  </svg>
 );
 
-export const WhatsappIcon = ({className}) => (
-<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24"  fill="#000" className={className}>
-  
-<path d="M19.1,4.9C17.2,3,14.7,2,12,2C6.5,2,2,6.5,2,12c0,1.8,0.5,3.5,1.3,5L2,22l5.2-1.2C8.7,21.6,10.3,22,12,22	
+export const WhatsappIcon = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    x="0px"
+    y="0px"
+    width="100"
+    height="100"
+    viewBox="0 0 24 24"
+    fill="#000"
+    className={className}
+  >
+    <path
+      d="M19.1,4.9C17.2,3,14.7,2,12,2C6.5,2,2,6.5,2,12c0,1.8,0.5,3.5,1.3,5L2,22l5.2-1.2C8.7,21.6,10.3,22,12,22	
 c5.5,0,10-4.5,10-10C22,9.3,21,6.8,19.1,4.9z M16.9,15.6c-0.2,0.6-1.2,1.1-1.7,1.2c-0.5,0-0.9,0.2-3-0.6c-2.5-1-4.1-3.6-4.3-3.8	
 c-0.1-0.2-1-1.4-1-2.6S7.5,8,7.8,7.7C8,7.4,8.3,7.4,8.5,7.4s0.3,0,0.5,0s0.4,0,0.6,0.4c0.2,0.5,0.7,1.7,0.8,1.9	c0.1,0.2,0.1,0.3,0,0.4c-0.1,0.1-0.1,0.3-0.2,0.4c-0.1,0.1-0.3,0.3-0.4,0.4c-0.1,0.1-0.3,0.3-0.1,0.5c0.1,0.3,0.6,1.1,1.4,1.7	c1,0.9,1.8,1.1,2,1.2c0.3,0.1,0.4,0.1,0.5-0.1c0.1-0.2,0.6-0.7,0.8-1c0.2-0.3,0.3-0.2,0.6-0.1c0.3,0.1,1.5,0.7,1.7,0.8	
-c0.3,0.1,0.4,0.2,0.5,0.3C17.1,14.5,17.1,15,16.9,15.6z"></path>
-</svg>
-)
+c0.3,0.1,0.4,0.2,0.5,0.3C17.1,14.5,17.1,15,16.9,15.6z"
+    ></path>
+  </svg>
+);
 
 export const CartIcon = ({ className, handleCartState, id, select }) => (
   <svg
@@ -163,7 +177,6 @@ export const HeartIcon = ({ className, id, toggleToLikes }) => {
           dataarticul={id}
           strokeLinecap="round"
           strokeLinejoin="round"
-        
         />
       </g>
       <defs>

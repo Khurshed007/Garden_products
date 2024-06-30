@@ -24,7 +24,7 @@ export const Layout = () => {
   return (
     <main>
       <Navigation />
-     
+     {/* <Loading/> */}
       {isError ? <ErrorMessage /> : (isLoading ? <Loading /> : <Outlet />)} 
       <Footer />
     </main>

@@ -15,8 +15,8 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
   const [showDiscountedItems, setShowDiscountedItems] = useState( // true || false
     discountQuery === "1"
   );
-  const [fromValue, setFromValue] = useState(fromQuery || ""); // Значение fromQuery и || ""
-  const [toValue, setToValue] = useState(toQuery || "");
+  const [fromValue, setFromValue] = useState(fromQuery); // Значение fromQuery 
+  const [toValue, setToValue] = useState(toQuery);
 
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
         // без toValue изначально урезается весь массив
         condition = false;
       }
-
+    //  alert(condition)
       return condition;
     });
 
@@ -81,14 +81,18 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
 
   // updateSearchParams берет в объ значения из inputoв отдает searchParams
   // Устанавливает для url значения
+
+
+
   const updateSearchParams = (updatedParams) => {
     const newParams = {
-      ...Object.fromEntries(searchParams.entries()),
-      ...updatedParams,
+        // из Map делаем объект. Object.fromEntries
+        // метод Object.fromEntries получив массив пар вида [ключ, значение], он создаёт из них объект
+      ...Object.fromEntries(searchParams), // Нужен для того, чтобы заполнить url строку, а не переписать
+      ...updatedParams, // Нужен для того, чтобы установить новые свойства перезатирая страые (объ не может хранить 2 один-ых.свой.)
     };
 
-    console.log(newParams);
-    setSearchParams(newParams);
+    setSearchParams(newParams); // результат передаем setSearchparams который все напишет на url
   };
   return (
     <FilterForm
