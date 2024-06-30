@@ -9,6 +9,7 @@ export const useShopAction = () => {
   const isLoading = useSelector((state) => state.shop.isLoading);
   const isError = useSelector((state) => state.shop.error);
   const path = useSelector((state) => state.shop.path);
+  
   const likesCounter = useSelector(getLikesCounter);
   const categoryProducts = useSelector((state) => state.shop.categoryProducts);
   const isDiscountApplied = useSelector((state) => state.shop.discountApplied);
