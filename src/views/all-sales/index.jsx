@@ -2,14 +2,15 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 
 // Redux store
 import { requestAllProductItem } from "../../store/async-action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { CardItem } from "../../components/card-item/card-item";
-import { useShopAction } from "../../hooks/useShopAction";
+
+import { getAllItems } from "../../store/selectors";
 
 export const AllSales = () => {
   const dispatch = useDispatch();
-  const { items } = useShopAction();
+  const items  = useSelector(getAllItems);
   useEffect(() => {
     if (!items.length || !items) {
       dispatch(requestAllProductItem());

@@ -5,27 +5,28 @@ import { Categories } from "../categories";
 
 // Redux
 import { requestAllProductItem } from "../../store/async-action";
+import { useSelector } from "react-redux";
+import { getAllItems, getDiscountItems } from "../../store/selectors";
 // Кастомный хук
 import { DiscountForm } from "../discount-form/discount-form";
-import { useShopAction } from "../../hooks/useShopAction";
 import { useDispatch } from "react-redux";
 export const Main = () => {
   const dispatch = useDispatch();
-  const { discountItems, items } = useShopAction();
+  const discountItems = useSelector(getDiscountItems);
+  const items = useSelector(getAllItems);
   useEffect(() => {
     if (!items.length || !items) {
       dispatch(requestAllProductItem());
     }
-  }, [dispatch]);
+  }, [dispatch,items]);
 
   const fourDiscountItems = useMemo(() => {
     return [...discountItems].sort(() => Math.random() - 0.5).slice(0, 4);
-  }, []);
+  }, [discountItems]);
 
-  
   return (
     <>
-      <Head />
+      <Head/>
 
       <Categories
         categoriesItem={4}

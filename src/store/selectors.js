@@ -1,11 +1,33 @@
 import { createSelector } from "reselect"; // Мемоизация для Selectors
 import { getDiscountPercent } from "../utils/getDiscountPercent";
 
-// Пример состояния
-export const getAllItems = (state) => state.shop.items;
-export const getGoodsData = (state) => state.cart.goodsData;
-export const getLikesData = (state) => state.shop.likesData;
 
+
+
+
+
+// Селекторы без операции от shop
+export const getAllItems = (state) => state.shop.items;
+export const getCategorys = (state) => state.shop.category; // 5 CategoryItems
+export const getLikesData = (state) => state.shop.likesData;
+export const getTheme = (state) => state.shop.theme;
+export const getIsLoading = (state) => state.shop.isLoading;
+export const getError = (state) => state.shop.error;
+export const getPath = (state) => state.shop.path;
+export const getCurrenCategoryProducts = (state) => state.shop.categoryProducts;
+export const getIsDiscountApplied = (state) => state.shop.discountApplied;
+export const getIsOrderApplied = (state) => state.shop.orderApplied
+export const getModallState = (state) => state.shop.isModallOpen;
+export const getIsError = (state) => state.shop.isError;
+//  export const mostDiscountItem = (getDiscountItems)[0]
+
+
+// Селекторы c операциями от shop
+// export const getLikesCounter = (state) => {
+//   alert("Likes") // срабатывает бесконечно
+
+//   return Object.values(state.shop.likesData).filter((liked) => liked).length;
+// }
 export const getDiscountItems = createSelector(
   // getDiscountItems возвращает новый массив или объект при каждом вызове, даже если данные в состоянии Redux не изменились
   [getAllItems],
@@ -21,26 +43,18 @@ export const getDiscountItems = createSelector(
   }
 );
 
-export const getCategorys = (state) => state.shop.category; // 5 CategoryItems
-
-export const getIsLoading = (state) => state.shop.isLoading;
-
-export const getError = (state) => state.shop.error;
-
-export const getCurrenCategoryProducts = (state) => state.shop.categoryProducts;
-
-// export const getLikesCounter = (state) => {
-//   alert("Likes") // срабатывает бесконечно
-
-//   return Object.values(state.shop.likesData).filter((liked) => liked).length;
-// }
-
 
 export const getLikesCounter = createSelector([getLikesData], (likesData) => {
-   return Object.values(likesData).filter((liked) => liked).length;
+  return Object.values(likesData).filter((liked) => liked).length;
 })
 
-export const getModallState = (state) => state.shop.isModallOpen;
+
+
+
+
+export const getGoodsData = (state) => state.cart.goodsData;
+
+
 
 // export const getCartCounter = (state) =>{
 // alert("123")
@@ -56,3 +70,10 @@ export const getCartCounter = createSelector([getGoodsData], (goodsData) => {
     return accu;
   }, 0);
 });
+
+
+
+
+
+
+

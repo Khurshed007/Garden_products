@@ -37,17 +37,17 @@
   line-height: 12px;
   text-align: center;
   color: #fff;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-
-
-.display_active{
-  @media screen and (max-width: 1400px) {
-    display: none;
- }
+.display_active {
+  @media screen and (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    left: 2px;
+    top: 5px;
+  }
 }
-
-
-

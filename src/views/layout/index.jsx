@@ -6,26 +6,33 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { setPath } from "../../store/shop-slice";
-import { getPath } from "../../utils/getPath";
+import { getPathRoute } from "../../utils/getPath";
 import { Loading } from "../loading/loading";
-import { useShopAction } from "../../hooks/useShopAction";
 import { ErrorMessage } from "../404/error";
+import {
+  getAllItems,
+  getCategorys,
+  getIsError,
+  getIsLoading,
+} from "../../store/selectors";
 export const Layout = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { pathname } = location;
-  const  {category,items,isLoading,isError} = useSelector((state) => state.shop);
+  const category = useSelector(getCategorys);
+  const items = useSelector(getAllItems);
+  const isLoading = useSelector(getIsLoading);
+  const isError = useSelector(getIsError);
 
   useEffect(() => {
-    dispatch(setPath(getPath(pathname, items, category)));
-  }, [pathname, category, items, dispatch]);
+    dispatch(setPath(getPathRoute(pathname, items, category)));
+  }, [pathname, items, dispatch,category]); // items в зависимости потому что асинхронному запросу нужно время иначе мы получим пустой массив;
 
-  const myPath = useSelector((state) => state.shop.path);
   return (
     <main>
       <Navigation />
-     {/* <Loading/> */}
-      {isError ? <ErrorMessage /> : (isLoading ? <Loading /> : <Outlet />)} 
+      {/* <Loading/> */}
+      {isError ? <ErrorMessage /> : isLoading ? <Loading /> : <Outlet />}
       <Footer />
     </main>
   );
