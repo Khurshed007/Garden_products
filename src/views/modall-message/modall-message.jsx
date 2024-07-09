@@ -5,6 +5,7 @@ import { Modallordered } from "./modal-order/modall_ordered";
 
 import { memo } from "react";
 
+
  const ModallMessage = ({
   setIsModallOpen,
   isModallOpen,
@@ -12,8 +13,6 @@ import { memo } from "react";
   productImg,
   congrates,
 }) => {
-
-
 
 
   const renderModalContent = () => {
@@ -35,7 +34,7 @@ import { memo } from "react";
       );
     } else {
       return (
-        <ModallMostDiscounted
+         <ModallMostDiscounted
           setIsModallOpen={setIsModallOpen}
           isModallOpen={isModallOpen}
           productImg={productImg}

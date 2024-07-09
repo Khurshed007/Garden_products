@@ -7,11 +7,9 @@ import { XMark } from "../../assets/icons";
 
 
 const CartView =  memo(({
-  goodsData,
   counter,
   addtoCart,
   deleteFromCart,
-  articul,
   id,
   deleteCart,
   items
@@ -24,12 +22,12 @@ const {price:currentPrice,title:currenttitle,image, discont_price:currentDiscont
     console.log("I am Memo")
 
     
-  return  Boolean(goodsData[id]) && ( // Завернул goodsData[id] в Boolean потому что иначе будет 0 рисоваться
+  return  Boolean(counter) && ( // Завернул goodsData[id] в Boolean потому что иначе будет 0 рисоваться
     
     <>
       <div key="" className={styles.cart_item}>
         <div className={styles.img_box}>
-          <img src={BASE_URL + image} className={styles.img} />
+          <img alt={image} src={BASE_URL + image} className={styles.img} />
         </div>
         <div className={styles.product_details}>
           <div className={styles.product_header}>

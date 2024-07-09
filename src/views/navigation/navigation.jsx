@@ -8,20 +8,24 @@ import { Hamburger } from "./hamburger/hambruger.jsx";
 import cn from "classnames";
 import { MemoModallMessage } from "../modall-message/modall-message.jsx";
 import { useSelector } from "react-redux";
-import { getCartCounter } from "../../store/selectors.js";
+import { getAllItems, getCartCounter, getTheme } from "../../store/selectors.js";
 import { getLikesCounter } from "../../store/selectors.js";
-import { useShopAction } from "../../hooks/useShopAction.js";
+import { useDispatch } from "react-redux";
+import { switchTheme } from "../../store/shop-slice.js";
+
 export const Navigation = () => {
+  const dispatch = useDispatch()
   const [isToggleOn, setIsToggleOn] = useState(false);
   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
   const [isModallOpen, setIsModallOpen] = useState(false);
-  const { toggleTheme, theme } = useShopAction();
+  const theme = useSelector(getTheme);
   const cartCounter = useSelector(getCartCounter);
   const likesCounter = useSelector(getLikesCounter);
-
+  const items = useSelector(getAllItems)
+      
   const onSwitchToggle = () => {
     setIsToggleOn((prev) => !prev);
-    toggleTheme();
+    dispatch(switchTheme())
   };
 
   const onToggleHamburgersClass = () => {
@@ -43,9 +47,9 @@ export const Navigation = () => {
       <nav
         className={cn(styles.navbar, { [styles.active]: isHamburgerActive })}
       >
-        <button className={styles.btn} onClick={handleOpenModal}>
+        {!items.length || <button className={styles.btn} onClick={handleOpenModal}>
           1 Day Discount
-        </button>
+        </button>} 
         <ul>
           <li>
             <NavLink to="/" className={getClassName}>
@@ -77,7 +81,7 @@ export const Navigation = () => {
           </IconCounter>
         </Link>
         <Link to="/cart">
-          <IconCounter count={cartCounter}>
+          <IconCounter count={cartCounter} displayActive={"display_active"}>
             <NavCartIcon className={styles.cart} />
           </IconCounter>
         </Link>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {getSortedPosts} from "../../utils/getSortedPosts"
+import { getSortedPosts } from "../../utils/getSortedPosts";
 import { useSearchParams } from "react-router-dom";
 import { FilterForm } from "./filter-form";
 
@@ -10,14 +10,14 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
   const toQuery = searchParams.get("to"); // Передастся значение из to URL
   const discountQuery = searchParams.get("discount"); // Передастся значение discount ИЗ URL
   const sort = searchParams.get("sort");
-   // Стейты которые в зависимости от наших searchParams дают значение
+  // Стейты которые в зависимости от наших searchParams дают значение
   const [sortOption, setSortOption] = useState(sort || "default"); // Так как при обновлении стейты очищаются, а SeacrParams нет.  изн. положение нужно ставить
-  const [showDiscountedItems, setShowDiscountedItems] = useState( // true || false
+  const [showDiscountedItems, setShowDiscountedItems] = useState(
+    // true || false
     discountQuery === "1"
   );
-  const [fromValue, setFromValue] = useState(fromQuery); // Значение fromQuery 
-  const [toValue, setToValue] = useState(toQuery);
-
+  const [fromValue, setFromValue] = useState(fromQuery || ""); // Значение fromQuery
+  const [toValue, setToValue] = useState(toQuery || ""); // либо пустая строка, так как иначе, Ract будет жаловаться
 
   useEffect(() => {
     let filteredPosts = posts.filter((post) => {
@@ -33,7 +33,7 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
         // без toValue изначально урезается весь массив
         condition = false;
       }
-    //  alert(condition)
+      //  alert(condition)
       return condition;
     });
 
@@ -70,24 +70,22 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
   };
   //handleSortChange утанавливает для setFromValue значение из Input from
   const handleFromChange = (e) => {
-    setFromValue(e.target.value);
-    updateSearchParams({ from: e.target.value });
+    setFromValue(e.target.value > 0 ? e.target.value : "");
+    updateSearchParams({ from: e.target.value > 0 ? e.target.value : "" });
   };
   //handleToChange утанавливает для toValue значение из Input to
   const handleToChange = (e) => {
-    setToValue(e.target.value);
-    updateSearchParams({ to: e.target.value });
+    setToValue(e.target.value > 0 ? e.target.value : "");
+    updateSearchParams({ to: e.target.value > 0 ? e.target.value : "" });
   };
 
   // updateSearchParams берет в объ значения из inputoв отдает searchParams
   // Устанавливает для url значения
 
-
-
   const updateSearchParams = (updatedParams) => {
     const newParams = {
-        // из Map делаем объект. Object.fromEntries
-        // метод Object.fromEntries получив массив пар вида [ключ, значение], он создаёт из них объект
+      // из Map делаем объект. Object.fromEntries
+      // метод Object.fromEntries получив массив пар вида [ключ, значение], он создаёт из них объект
       ...Object.fromEntries(searchParams), // Нужен для того, чтобы заполнить url строку, а не переписать
       ...updatedParams, // Нужен для того, чтобы установить новые свойства перезатирая страые (объ не может хранить 2 один-ых.свой.)
     };

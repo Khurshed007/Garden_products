@@ -1,20 +1,29 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import styles from "./index.module.scss"; // Подключение модуля стилей
 import { MemoCartView } from "./cart-view";
 
-import { useCartAction } from "../../hooks/useCartAction";
 import { useSelector } from "react-redux";
-import { getAllItems, getCartCounter } from "../../store/selectors";
+import {
+  getAllItems,
+  getCartCounter,
+  getGoodsData,
+  getIsDiscountApplied,
+} from "../../store/selectors";
 import cn from "classnames";
 import { Title } from "../title/title";
 import { ModallNotFound } from "../../views/modall-message/modall-not-found";
 import { Modallordered } from "../../views/modall-message/modal-order/modall_ordered";
-import { useShopAction } from "../../hooks/useShopAction";
 import { getFivePercentDiscount } from "../../utils/getFivePercentDiscount";
 import { DiscountInput } from "../../views/discount-form";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { sendOrderData } from "../../store/async-action";
+import {
+  addToCart,
+  deleteAllCart,
+  deleteFromCart,
+  resetGoodsData,
+} from "../../store/cart-slice";
 const CartContent = () => {
   const onFormSubmit = (formData) => {
     dispatch(sendOrderData(formData));
@@ -28,18 +37,45 @@ const CartContent = () => {
     control,
   } = useForm();
 
-  const {
-    handleAddToCart,
-    handleDeleteFromCart,
-    goodsData,
-    getCartId,
-    deleteCart,
-  } = useCartAction();
+  // const {
+
+  //   handleDeleteFromCart,
+  //   goodsData,
+  //   getCartId,
+  //   deleteCart,
+  // } = useCartAction();
+  const goodsData = useSelector(getGoodsData);
+  const handleAddToCart = useCallback(
+    (articul) => {
+      dispatch(addToCart(articul));
+    },
+    [dispatch]
+  );
+
+  const handleDeleteFromCart = useCallback(
+    (articul) => {
+      dispatch(deleteFromCart(articul));
+    },
+    [dispatch]
+  );
+
+  const deleteCart = useCallback(
+    (articul) => {
+      dispatch(deleteAllCart(articul));
+    },
+    [dispatch]
+  );
+
+
+
+  const resetCart = () => {
+    dispatch(resetGoodsData());
+  }; // useCallback не нужен.Передается маленькому компоненту
 
   const DATA_ALL_PRODUCTS = useSelector(getAllItems);
   const [isModallOpen, setIsModallOpen] = useState(false);
   const cartCounter = useSelector(getCartCounter);
-  const { isDiscountApplied, items } = useShopAction();
+  const isDiscountApplied = useSelector(getIsDiscountApplied);
 
   const goodsDataKeys = useMemo(
     () =>
@@ -62,7 +98,7 @@ const CartContent = () => {
       }
     });
     return sum;
-  }, [goodsData, DATA_ALL_PRODUCTS]);
+  }, [goodsData, DATA_ALL_PRODUCTS,goodsDataKeys]);
   const totalItem = Object.keys(goodsData).length;
 
   const renderContent = () => {
@@ -82,14 +118,13 @@ const CartContent = () => {
               <MemoCartView
                 key={articul}
                 articul={articul}
-                goodsData={goodsData}
+                // goodsData={goodsData}
                 counter={goodsData[articul]}
                 addtoCart={handleAddToCart}
                 deleteFromCart={handleDeleteFromCart}
-                getCartId={getCartId}
                 id={articul}
                 deleteCart={deleteCart}
-                items={items}
+                items={DATA_ALL_PRODUCTS}
               />
             ))}
           </div>
@@ -128,6 +163,7 @@ const CartContent = () => {
         <Modallordered
           isModallOpen={isModallOpen}
           setIsModallOpen={setIsModallOpen}
+          resetCart={resetCart}
         />
       </>
     );

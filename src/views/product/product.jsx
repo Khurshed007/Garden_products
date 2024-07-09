@@ -4,39 +4,38 @@ import styles from "./index.module.scss";
 import { requestAllProductItem } from "../../store/async-action";
 import { BASE_URL } from "../../constants";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setProductCart } from "../../store/cart-slice";
 import { HeartIcon } from "../../assets/icons";
 import cn from "classnames";
 import { getDiscountPercent } from "../../utils/getDiscountPercent";
 import { BreadCrumbs } from "../../components/bread-crumbs/bread-crumbs";
 import { MemoModallMessage } from "../modall-message/modall-message";
-import { useShopAction } from "../../hooks/useShopAction";
+import { getAllItems, getLikesData } from "../../store/selectors";
+import { toggleLikes } from "../../store/shop-slice";
 
 export const Product = () => {
+  // Стейты
+  const [productCounter, setProductCounter] = useState(0);
+
+  // Переменные для извлечения и Условия
   const dispatch = useDispatch();
   const { productId } = useParams();
-   const {items} = useShopAction()
-   useEffect(() => {
-    if(!items.length || !items){
-       dispatch(requestAllProductItem())  
-    }
-   }, [dispatch,items])
+  const items = useSelector(getAllItems);
+  const likesData = useSelector(getLikesData);
 
   const [isModallOpen, setIsModallOpen] = useState(false);
-  const { toggleToLikes, likesData } = useShopAction();
-  const discoveredItem = items[+productId-1] 
-  const title = discoveredItem ? discoveredItem["title"] : "";
-  const id = discoveredItem ? discoveredItem["id"] : "";
-  const image = discoveredItem ? discoveredItem["image"] : "";
-  const price = discoveredItem ? discoveredItem["price"] : "";
-  const description = discoveredItem ? discoveredItem["description"] : "";
-  const discont_price = discoveredItem ? discoveredItem["discont_price"] : "";
-
-
-  const [productCounter, setProductCounter] = useState(0);
+  const discoveredItem = items[+productId - 1];
+  const title = discoveredItem?.title;
+  const id = discoveredItem?.id;
+  const image = discoveredItem?.image;
+  const price = discoveredItem?.price;
+  const description = discoveredItem?.description;
+  const discont_price = discoveredItem?.discont_price;
+  
   const discontPercent = getDiscountPercent(price, discont_price).toFixed(0);
 
+  // functions
   const addCounter = () => {
     setProductCounter((prev) => (prev += 1));
   };
@@ -54,6 +53,16 @@ export const Product = () => {
   const handModallOpen = () => {
     setIsModallOpen(true);
   };
+
+  const toggleToLikes = (articul) => {
+    dispatch(toggleLikes(articul));
+  };
+
+  useEffect(() => {
+    if (!items.length || !items) {
+      dispatch(requestAllProductItem());
+    }
+  }, [dispatch, items]);
 
   // ### /products/${itemId}     - ссылка на первый продукт
 
@@ -77,7 +86,7 @@ export const Product = () => {
         />
       </div>
       <div className={styles.wrapper}>
-        <BreadCrumbs noMargin = {true}/>
+        <BreadCrumbs noMargin={true} />
         <div className={styles.product_card}>
           <div className={styles.left_card}>
             <div className={styles.product_image}>
