@@ -18,15 +18,18 @@ export const Main = () => {
     if (!items.length || !items) {
       dispatch(requestAllProductItem());
     }
-  }, [dispatch,items]);
+  }, [dispatch, items]);
 
   const fourDiscountItems = useMemo(() => {
     return [...discountItems].sort(() => Math.random() - 0.5).slice(0, 4);
   }, [discountItems]);
 
+
+
+
   return (
     <>
-      <Head/>
+      <Head />
 
       <Categories
         categoriesItem={4}
@@ -35,7 +38,7 @@ export const Main = () => {
         hideBreadCrumbs={true}
         gap={true}
       />
-      {<DiscountForm />}
+      <DiscountForm />
       <section>
         <CardItem
           dataItems={fourDiscountItems}
@@ -43,7 +46,6 @@ export const Main = () => {
           btnText={"All Sales"}
           btnDispplay={true}
           hideBreadCrumbs={true}
-          path={"all-sales"}
         />
       </section>
     </>

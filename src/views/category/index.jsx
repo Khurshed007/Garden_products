@@ -26,6 +26,7 @@ export const Category = () => {
         dataItems={filteredPosts}
         filterData={categoryProducts}
         setFilteredPosts={setFilteredPosts}
+  
       />
     </section>
   );

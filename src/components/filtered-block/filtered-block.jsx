@@ -3,7 +3,7 @@ import { getSortedPosts } from "../../utils/getSortedPosts";
 import { useSearchParams } from "react-router-dom";
 import { FilterForm } from "./filter-form";
 
-const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
+const FilterBlock = ({ posts, setFilteredPosts, isAllSales,key }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   // fromQuery, toQuery, discountQuery: Эти переменные получают соответствующие параметры из URL.
   const fromQuery = searchParams.get("from"); // Передастся значение from из URL
@@ -103,6 +103,7 @@ const FilterBlock = ({ posts, setFilteredPosts, isAllSales }) => {
       handleToChange={handleToChange}
       sortOption={sortOption}
       handleSortChange={handleSortChange}
+      key={key}
     />
   );
 };

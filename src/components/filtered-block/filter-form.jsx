@@ -1,11 +1,11 @@
 
 import styles from "./index.module.scss";
 
-export const FilterForm = ({isAllSales,showDiscountedItems,handleCheckboxClick,fromValue,toValue,handleFromChange,handleToChange,sortOption,handleSortChange}) => {
+export const FilterForm = ({key,isAllSales,showDiscountedItems,handleCheckboxClick,fromValue,toValue,handleFromChange,handleToChange,sortOption,handleSortChange}) => {
 
 
     return (
-<form autoComplete="off" className={styles.block}>
+<form autoComplete="off" className={styles.block} key={key}>
     <div className={styles.price_content}>
       <label htmlFor="">Price</label>
       <input

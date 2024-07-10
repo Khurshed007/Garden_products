@@ -9,6 +9,7 @@ import { MemoCardItemView } from "../../../components/card-item/card-item-view";
 import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import {toggleCartItem } from "../../../store/cart-slice";
+import { toggleLikes } from "../../../store/shop-slice";
 export const ModallMostDiscounted = ({ setIsModallOpen }) => {
   const dispatch = useDispatch()
   let mostDiscountedItem = useSelector(getDiscountItems)[0];
@@ -28,6 +29,9 @@ export const ModallMostDiscounted = ({ setIsModallOpen }) => {
 
   const handleCartState = (articul) => {
     dispatch(toggleCartItem(articul));
+  };
+  const handleLikeState = (articul) => {
+    dispatch(toggleLikes(articul));
   };
 
   const handleCloseModal = () => {
@@ -56,6 +60,8 @@ export const ModallMostDiscounted = ({ setIsModallOpen }) => {
             discont={discont_price}
             discontPercent={getDiscountPercent(price, discont_price)}
             noMargin={true}
+            toggleToLikes = {handleLikeState}
+
           />
           <button
             onClick={() => handleCartState(id)}

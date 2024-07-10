@@ -1,4 +1,4 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 
 const BodyClassManager = ({ isthemeDark }) => {
   useEffect(() => {
@@ -8,7 +8,6 @@ const BodyClassManager = ({ isthemeDark }) => {
     // Очистка классов при размонтировании компонента
     return () => {
       document.body.classList.remove(isthemeDark);
-      //   document.body.classList.remove("light");
     };
   }, [isthemeDark]);
 
