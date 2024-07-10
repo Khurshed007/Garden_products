@@ -17,11 +17,11 @@ export const DiscountInput = ({ register, errors, control, lightColor }) => {
         control={control}
         errors={errors}
         name="userName"
-        rules={{
+        rules={{ // устанавливаем услевие, как должен вести себя input. Нужен искючительно для CONTROLLER
           required: "Wrong input. Try again",
           pattern: {
             value: NAME_REGEX,
-            message: "Only letters should be here",
+            message: "Only letters should be here", // message, если REGEX не соблюдается
           },
         }}
       />
