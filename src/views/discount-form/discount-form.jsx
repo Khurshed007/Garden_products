@@ -9,16 +9,17 @@ import { useDispatch, useSelector } from "react-redux";
 export const DiscountForm = () => {
   const isDiscountApplied = useSelector((state) => state.shop.discountApplied);
   const onFormSubmit = (formData) => {
-    dispatch(sendSaleData(formData));
+    dispatch(sendSaleData(formData)); // хранит инфо о ф-ях в объекте
   };
   const dispatch = useDispatch();
   const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    control,
+    // register,
+    handleSubmit, // HOF ПРИНИМАЕТ ДРУГУЮ ФУНКЦИЮ
+    formState: { errors }, 
+    control, // хранит в себе специальные методы все спец. методы и также fields {инфо о names}. Заменяет register
   } = useForm();
 
+  
   return (
     <section>
       <div className={styles.form_container}>
@@ -31,11 +32,11 @@ export const DiscountForm = () => {
           </div>
           <div className={styles.form}>
             <form
-              onSubmit={handleSubmit(onFormSubmit)}
-              className={styles.form__form}
+              onSubmit={handleSubmit(onFormSubmit)} // handleSubmit нужен для отключения поведения по умолч.
+              className={styles.form__form} 
             >
               <DiscountInput
-                register={register}
+                // register={register}
                 errors={errors}
                 control={control}
                 text={"Get a discount"}

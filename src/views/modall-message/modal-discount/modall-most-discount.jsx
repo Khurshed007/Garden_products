@@ -2,6 +2,7 @@ import styles from "./index.module.scss";
 import {
   getDiscountItems,
   getGoodsData,
+  getLikesData,
 } from "../../../store/selectors";
 import { getDiscountPercent } from "../../../utils/getDiscountPercent";
 import { XMark } from "../../../assets/icons";
@@ -25,7 +26,7 @@ export const ModallMostDiscounted = ({ setIsModallOpen }) => {
   // const { handleAddToCart, goodsData} = useCartAction();
 
   const goodsData = useSelector(getGoodsData);
-
+  const likesData = useSelector(getLikesData)
 
   const handleCartState = (articul) => {
     dispatch(toggleCartItem(articul));
@@ -61,6 +62,7 @@ export const ModallMostDiscounted = ({ setIsModallOpen }) => {
             discontPercent={getDiscountPercent(price, discont_price)}
             noMargin={true}
             toggleToLikes = {handleLikeState}
+            likesData = {likesData[id]}
 
           />
           <button
