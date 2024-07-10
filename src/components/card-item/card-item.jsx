@@ -5,10 +5,7 @@ import { Title } from "../title/title";
 import { BreadCrumbs } from "../bread-crumbs/bread-crumbs";
 import FilterBlock from "../filtered-block/filtered-block";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getGoodsData,
-  getLikesData,
-} from "../../store/selectors";
+import { getGoodsData, getLikesData } from "../../store/selectors";
 import { useCallback, useMemo } from "react";
 import { toggleCartItem } from "../../store/cart-slice";
 import { toggleLikes } from "../../store/shop-slice";
@@ -22,6 +19,7 @@ export const CardItem = ({
   hideBreadCrumbs,
   isAllSales,
   path,
+
 }) => {
   const dispatch = useDispatch();
   const likesData = useSelector(getLikesData);
@@ -66,6 +64,7 @@ export const CardItem = ({
         btnText={btnText}
         btnDispplay={btnDispplay}
         path={path}
+
       />
 
       {filterData && (
@@ -73,6 +72,7 @@ export const CardItem = ({
           posts={filterData}
           setFilteredPosts={setFilteredPosts}
           isAllSales={isAllSales}
+
         />
       )}
       <div className={styles.list}>

@@ -24,6 +24,7 @@ export const AllProducts = () => {
         text={"All Products"}
         filterData={items}
         setFilteredPosts={setFilteredPosts}
+ 
       />
     </section>
   );

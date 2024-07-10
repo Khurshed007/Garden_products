@@ -33,6 +33,7 @@ export const AllSales = () => {
         text={"Discounted Items"}
         filterData={discontItemsList}
         setFilteredPosts={setFilteredPosts}
+ 
       />
     </section>
   );
